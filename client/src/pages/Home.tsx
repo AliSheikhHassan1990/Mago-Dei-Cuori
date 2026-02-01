@@ -12,69 +12,69 @@ import { Button } from '@/components/ui/button';
 export default function Home() {
   const menuCategories = [
     {
+      category: 'Pizza',
+      items: [
+        { name: 'Regina Margherita', description: 'San Marzano DOP, Fior di Latte, frischer Basilikum, Parmesan, Olivenöl', price: '€10,50', allergens: 'AG' },
+        { name: 'Marinara (Vegan)', description: 'San Marzano DOP, Oregano, Knoblauch Öl', price: '€9,50', allergens: 'A' },
+        { name: 'Salami', description: 'San Marzano DOP, Fior di Latte, Salami, Oregano', price: '€13,00', allergens: 'AG' },
+        { name: 'Siciliana', description: 'San Marzano DOP, Sardellen, Olivenöl, Oregano, Kapern, Oliven', price: '€13,90', allergens: 'AD' },
+        { name: 'Quattro Formaggi', description: 'Taleggio DOP, Fior di Latte, Gorgonzola, Provola Affumicata, Parmesan Chips, Walnüsse', price: '€14,50', allergens: 'AGH' },
+        { name: 'Capricciosa', description: 'San Marzano DOP, Fior di Latte, Arrosto di tacchino, Oliven, Champignons, Artischocken', price: '€13,90', allergens: 'AG' },
+        { name: 'Caprese', description: 'Ricotta Creme, Fior di Latte, Cherry Tomaten, Basilikum, Parmesan, Olivenöl', price: '€13,00', allergens: 'AG' },
+        { name: 'Ricotta Spinaci', description: 'Ricotta Creme, Pfeffer, Olivenöl, Spinat, Granatapfelsyrup', price: '€13,50', allergens: 'AG' },
+        { name: 'Detox', description: 'San Marzano DOP, gem. gegr. Gemüse, mit Oregano, Olivenöl', price: '€13,00', allergens: 'A' },
+        { name: 'Tonno E Magia', description: 'San Marzano DOP, Fior di Latte, Tonno, karamellisierte Zwiebel, Olivenbrösel', price: '€13,50', allergens: 'AGD' },
+        { name: 'Bresaola Lovers', description: 'San Marzano DOP, Fior di Latte, Rucola, Geräuchertes Jungrind, Parmesan', price: '€13,90', allergens: 'AG' },
+        { name: 'Colorata', description: 'San Marzano DOP, Fior di Latte, Gorgonzola, Paprika, Zucchini', price: '€13,00', allergens: 'AG' },
+        { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€14,50', allergens: 'AGO' },
+        { name: 'Burrata e Pistacchio', description: 'Pistacchio paste DOP, Fior di Latte, Burrata, Basilikum', price: '€14,50', allergens: 'AGEHMPFC' },
+        { name: 'Giardiniera (Rucola)', description: 'San Marzano DOP, Fior di Latte, Rucola, Cherry Tomaten, Parmesan', price: '€13,00', allergens: 'AG' },
+        { name: 'Diavolo', description: 'San Marzano DOP, Fior Di Latte, Salami, Arrosto di tacchino, scharfe Pfefferoni', price: '€13,50', allergens: 'AG' },
+        { name: 'Prosciutto e Funghi', description: 'San Marzano DOP, Fior di Latte, Arrosto di tacchino, Champignons, Basilikum, Parmesan', price: '€13,50', allergens: 'AG' },
+        { name: 'Parmigiana e Fumo', description: 'San Marzano DOP, Fior Di Latte, Melanzane, Provola affumicata, Basilikum creme', price: '€13,50', allergens: 'AGEHLDF' },
+        { name: 'Pesto e Fumo', description: 'Pesto alla Genovese, Fior di Latte, Provola Affumicata, Cherry Tomaten, Pinien', price: '€13,90', allergens: 'AGEHLDF' },
+        { name: 'Quattro Stagioni', description: 'San Marzano DOP, Fior di Latte, Champignons, Arrosto di tacchino, Salami, Artischocken', price: '€13,90', allergens: 'AG' },
+        { name: 'Gennaro', description: 'San Marzano DOP, Fior di Latte, Salami, Melanzani, Parmesan, Olivenöl', price: '€13,90', allergens: 'AG' },
+        { name: 'Pizza Vegano', description: 'San Marzano DOP, Champignons, Paprika, Spinat', price: '€12,90', allergens: 'A' },
+        { name: "Mago d'Oriente", description: 'Kräutermix mit Sesam, Fior di Latte, Olivenöl', price: '€11,90', allergens: 'AGN' },
+        { name: 'Calzone Classico', description: 'San Marzano DOP, Fior di Latte, Arrosto di tacchino, Basilikum, Parmesan', price: '€13,00', allergens: 'AG' },
+      ]
+    },
+    {
       category: 'Antipasti',
       items: [
-        { name: 'Pizza Brot', description: 'mit Napoli Sauce', price: '€5,90', allergens: 'A' },
-        { name: 'Pizza Brot mit Käse', description: 'mit Provola DOP Affumicata', price: '€6,90', allergens: 'AG' },
-        { name: 'Maze Mix', description: 'zur Auswahl: Hummus, Muhammara, Mutabal, Labneh, Zeyton', price: '€14,50', allergens: 'ANG' },
-        { name: 'Hummus', description: '', price: '€5,50', allergens: 'NG' },
-        { name: 'Muhammara', description: '', price: '€5,50', allergens: 'NG' },
-        { name: 'Mutabal', description: '', price: '€5,50', allergens: 'NG' },
-        { name: 'Labneh', description: '', price: '€5,50', allergens: 'G' },
-        { name: 'Zeyton', description: '', price: '€4,50', allergens: '' },
+        { name: 'Pizza Brot', description: 'mit Napoli Sauce', price: '€7,50', allergens: 'A' },
+        { name: 'Pizza Brot mit Käse', description: 'mit Provola DOP Affumicata', price: '€7,50', allergens: 'AG' },
+        { name: 'Maze Mix', description: '4 zur Auswahl: Hummus, Muhammara, Baba Ghanoug, Labneh, Zeyton mit Brot', price: '€16,50', allergens: 'AGN' },
+        { name: 'Hummus', description: '', price: '€5,90', allergens: 'N' },
+        { name: 'Muhammara', description: '', price: '€5,90', allergens: 'NA' },
+        { name: 'Baba Ghanoug', description: '', price: '€5,90', allergens: 'N' },
+        { name: 'Labneh', description: '', price: '€5,90', allergens: 'G' },
+        { name: 'Zeyton', description: '', price: '€5,90', allergens: '' },
       ]
     },
     {
       category: 'Salat',
       items: [
-        { name: 'Gemischter Salat', description: '', price: '€6,50', allergens: '' },
-        { name: 'Burrata Salat', description: '', price: '€8,90', allergens: 'G' },
-        { name: 'Mozzarella Salat', description: '', price: '€8,90', allergens: 'G' },
-        { name: 'Fatusch Salat', description: '', price: '€8,90', allergens: 'G' },
-      ]
-    },
-    {
-      category: 'Pizza (Klassiker)',
-      items: [
-        { name: 'Regina Margherita', description: 'San Marzano DOP, Fior di Latte, frischer Basilikum, Parmesan', price: '€9,50', allergens: 'AG' },
-        { name: 'Marinara (vegan)', description: 'San Marzano DOP, Olivenöl, Oregano', price: '€8,50', allergens: 'AG' },
-        { name: 'Salami', description: 'San Marzano DOP, Fior di Latte, Salami', price: '€11,50', allergens: 'AG' },
-        { name: 'Siciliana', description: 'San Marzano DOP, Sardellen, Olivenöl, Oregano, Kapern, Oliven', price: '€13,00', allergens: 'AGD' },
-        { name: 'Quattro Formaggi', description: 'Taleggio DOP, Crema di Mozzarella, Gorgonzola, Provola Affumicata, Parmesan Chips, Walnüsse', price: '€13,50', allergens: 'AGEH' },
-        { name: 'Capricciosa', description: 'San Marzano DOP, Fior di Latte, Prosciutto, Oliven, Schinken, Champignons, Artischocken', price: '€13,00', allergens: 'AG' },
-        { name: 'Caprese', description: 'Mozzarella Creme, Fior di Latte, Cherry Tomaten, Basilikum, Parmesan, Olivenöl', price: '€12,00', allergens: 'AG' },
-        { name: 'Ricotta Spinaci', description: 'Ricotta, Pfeffer, Parmesan, Olivenöl, Spinat, Granatapfel Syrup', price: '€12,50', allergens: 'AG' },
-        { name: 'Detox', description: 'Parmesan Creme, gemischte gegrillte Gemüse, Oregano', price: '€12,00', allergens: 'AG' },
-        { name: 'Tonno e Magia', description: 'San Marzano DOP, Fior di Latte, Tonno, karamellisierte Zwiebel, Olivenbrösel', price: '€12,50', allergens: 'AGD' },
-        { name: 'Bresaola Lovers', description: 'San Marzano DOP, Fior di Latte, Rucola, Bresaola, Parmesan', price: '€13,00', allergens: 'AGO' },
-        { name: 'Colorata', description: 'San Marzano DOP, Fior di Latte, Gorgonzola, Paprika, Zucchini, Gemüse Creme', price: '€12,00', allergens: 'AG' },
-        { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€13,50', allergens: 'AG' },
-      ]
-    },
-    {
-      category: 'Pizza (Weitere Sorten)',
-      items: [
-        { name: 'Burrata e Pistacchio', description: '', price: '€13,50', allergens: 'AGE' },
-        { name: 'Giardiniera (Rucola)', description: '', price: '€12,50', allergens: 'AG' },
-        { name: 'Diavolo', description: '', price: '€12,50', allergens: 'AG' },
-        { name: 'Prosciutto e Funghi', description: '', price: '€12,50', allergens: 'AG' },
-        { name: 'Parmigiana e Fumo', description: '', price: '€12,50', allergens: 'AG' },
-        { name: 'Pesto e Fumo', description: '', price: '€13,50', allergens: 'AGE' },
-        { name: 'Quattro Stagioni', description: '', price: '€13,50', allergens: 'AGE' },
-        { name: 'Gennaro', description: '', price: '€12,90', allergens: 'AGE' },
-        { name: 'Pizza Vegano', description: '', price: '€11,90', allergens: 'AG' },
-        { name: "Mago d'Oriente", description: '', price: '€10,90', allergens: 'AG' },
-        { name: 'Calzone Classico', description: '', price: '€12,00', allergens: 'AG' },
+        { name: 'Gemischter Salat', description: '', price: '€7,90', allergens: 'O' },
+        { name: 'Burrata Salat', description: '', price: '€9,90', allergens: 'GO' },
+        { name: 'Mozzarella Salat', description: '', price: '€9,90', allergens: 'GO' },
+        { name: 'Fattousch Salat', description: '', price: '€9,90', allergens: 'AO' },
       ]
     },
     {
       category: 'Extras',
       items: [
-        { name: 'Mozzarella, Gorgonzola, Ricotta, Pesto, Rucola, Parmesan Chips', description: '', price: '€2,00', allergens: '' },
-        { name: 'Oliven, Kapern, Mais, Cherry Tomaten, Paprika, karamellisierte Zwiebel, Artischocken, Champignons, Spinat, Pfefferone, scharfe Peperoncini, Basilikum', description: '', price: '€1,50', allergens: '' },
-        { name: 'Gegrillte Melanzani, gegrillte Zucchini', description: '', price: '€2,00', allergens: '' },
-        { name: 'Thunfisch, Sardellen, Schinken, Salami', description: '', price: '€3,00', allergens: '' },
-        { name: 'Knoblauch, Tabasco', description: '', price: '€1,00', allergens: '' },
+        { name: 'Mozzarella, Gorgonzola, Ricotta', description: '', price: '€2,00', allergens: '' },
+        { name: 'Pesto, Rucola, Parmesan Chips', description: '', price: '€2,00', allergens: '' },
+        { name: 'Kapern, Mais, Cherry Tomaten, Oliven', description: '', price: '€1,50', allergens: '' },
+        { name: 'Paprika, Karamellisierter Zwiebel', description: '', price: '€1,50', allergens: '' },
+        { name: 'Artischocken, Champignons, Spinat', description: '', price: '€1,50', allergens: '' },
+        { name: 'Scharfe Peperoncini, Basilikum', description: '', price: '€1,50', allergens: '' },
+        { name: 'Gegrl. Melanzani, gegrl. Zucchini, gegrl. Paprika', description: '', price: '€2,00', allergens: '' },
+        { name: 'Thunfisch, Sardellen, Arrosto di Tacchino, Salami', description: '', price: '€3,50', allergens: '' },
+        { name: 'Knoblauchöl, Chiliöl, Olivenöl', description: '', price: '€1,50', allergens: '' },
+        { name: 'Burrata', description: '', price: '€3,50', allergens: '' },
       ]
     },
     {
@@ -82,30 +82,30 @@ export default function Home() {
       items: [
         { name: 'Orangen gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
         { name: 'Apfel gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
-        { name: 'Himbeer gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
-        { name: 'Hollunder gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
-        { name: 'Soda', description: '0,25l / 0,5l', price: '€2,20 / €2,60', allergens: '' },
-        { name: 'Soda Zitrone', description: '0,33l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
-        { name: 'Coca Cola / Light / Zero', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Himbeer gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Hollunder gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Johannisbeere gespritzt', description: '0,3l / 0,5l', price: '€2,90 / €3,50', allergens: '' },
+        { name: 'Soda', description: '0,3l / 0,5l', price: '€2,00 / €2,90', allergens: '' },
+        { name: 'Soda Zitrone', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Coca Cola, Zero', description: '0,3l', price: '€2,50', allergens: '' },
         { name: 'Fanta', description: '0,3l', price: '€2,50', allergens: '' },
         { name: 'Almdudler', description: '0,3l', price: '€2,50', allergens: '' },
-        { name: 'Sprite', description: '0,33l', price: '€2,50', allergens: '' },
-        { name: 'Red Bull', description: '0,25l', price: '€3,00', allergens: '' },
+        { name: 'Sprite', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Red Bull', description: '0,25l', price: '€3,50', allergens: '' },
         { name: 'Eistee Pfirsich-Zitrone', description: '0,3l', price: '€2,50', allergens: '' },
-        { name: 'Frucade Orange', description: '0,33l', price: '€2,50', allergens: '' },
-        { name: 'Alkoholfreies Bier / Radler', description: '0,33l', price: '€3,00', allergens: '' },
-        { name: 'Wasser still / prickelnd', description: '0,5l', price: '€3,00', allergens: '' },
+        { name: 'Alkoholfreies Bier / Radler', description: '0,33l', price: '€3,50', allergens: '' },
+        { name: 'Wasser still / prickelnd', description: '0,5l', price: '€2,50', allergens: '' },
       ]
     },
     {
-      category: 'Kaffee / Tee',
+      category: 'Kaffee & Tee',
       items: [
         { name: 'Espresso', description: '', price: '€2,90', allergens: '' },
-        { name: 'Espresso doppelt', description: '', price: '€3,90', allergens: '' },
-        { name: 'Verlängerter', description: '', price: '€3,80', allergens: '' },
-        { name: 'Melange', description: '', price: '€3,50', allergens: '' },
-        { name: 'Cappucino', description: '', price: '€3,50', allergens: '' },
-        { name: 'Latte Macchiato', description: '', price: '€3,90', allergens: '' },
+        { name: 'Espresso Doppio', description: '', price: '€3,90', allergens: '' },
+        { name: 'Verlängerter', description: '', price: '€3,90', allergens: '' },
+        { name: 'Melange', description: '', price: '€3,90', allergens: '' },
+        { name: 'Cappuccino', description: '', price: '€3,90', allergens: '' },
+        { name: 'Latte Macchiato', description: '', price: '€4,20', allergens: '' },
         { name: 'Schwarztee', description: '', price: '€3,50', allergens: '' },
         { name: 'Grüntee', description: '', price: '€3,50', allergens: '' },
       ]
@@ -113,10 +113,9 @@ export default function Home() {
     {
       category: 'Dolce',
       items: [
-        { name: 'Tiramisu des Tages', description: '', price: '€4,90', allergens: 'G' },
-        { name: 'Mohr im Hemd', description: '', price: '€4,90', allergens: 'G' },
-        { name: 'Pizza Nutella', description: '', price: '€7,90', allergens: 'AG' },
-        { name: 'Dolce di Magia', description: '', price: '€5,90', allergens: '' },
+        { name: 'Tiramisù al Pistacchio', description: '', price: '€6,90', allergens: 'AFGH' },
+        { name: 'Pizza Nutella', description: '', price: '€8,90', allergens: 'AFGH' },
+        { name: 'Dolce di Magia', description: '', price: '€6,90', allergens: 'G' },
       ]
     },
   ];
@@ -339,7 +338,7 @@ export default function Home() {
 
           <div className="mt-8 p-4 bg-secondary/50 rounded-lg text-sm text-muted-foreground">
             <p className="font-semibold mb-2">Allergene:</p>
-            <p>A = Gluten, B = Krebstiere, C = Ei, D = Fisch, E = Erdnuss, F = Soja, G = Milch, H = Schalenfrüchte, L = Sellerie, M = Senf, N = Sesam, O = Sulfite, P = Lupinen, R = Weichtiere</p>
+            <p>A = Gluten, B = Krebstiere, C = Eier von Geflügel, D = Fisch, E = Erdnüsse, F = Sojabohnen, G = Milch von Säugetieren, H = Schalenfrüchte, L = Sellerie, M = Senf, N = Sesamsamen, O = Schwefeloxid und Sulfite, P = Lupinen, R = Weichtiere</p>
           </div>
         </div>
       </section>
