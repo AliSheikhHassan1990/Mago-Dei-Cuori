@@ -166,6 +166,13 @@ export default function Menu() {
               >
                 Menü
               </Link>
+              <Link
+                href="/kontakt"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Kontakt
+              </Link>
             </div>
           </div>
         )}

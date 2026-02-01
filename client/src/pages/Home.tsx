@@ -72,20 +72,13 @@ export default function Home() {
               >
                 Menü
               </Link>
-              <a
-                href="#reviews"
-                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Bewertungen
-              </a>
-              <a
-                href="#contact"
+              <Link
+                href="/kontakt"
                 className="text-foreground hover:text-primary transition-colors py-2 text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Kontakt
-              </a>
+              </Link>
             </div>
           </div>
         )}
