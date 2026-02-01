@@ -1,0 +1,32 @@
+name: Deploy to IONOS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls -la
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+  
+
+      - name: Deploy via SFTP
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.IONOS_HOST }}
+          username: ${{ vars.IONOS_USER }}
+          password: ${{ secrets.IONOS_PASS }}
+          port: 22
+          uploads: |
+            ./dist/ => /clickandbuilds/magodeicori
