@@ -7,6 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: Mago-Dei-Cuori
     steps:
       - uses: actions/checkout@v4
       - run: ls -la
@@ -30,7 +31,7 @@ jobs:
       - name: Deploy via SFTP
         uses: Dylan700/sftp-upload-action@latest
         with:
-          server: ${{ vars.IONOS_HOST }}
+          server: ${{ secrets.IONOS_HOST }}
           username: ${{ vars.IONOS_USER }}
           password: ${{ secrets.IONOS_PASS }}
           port: 22
