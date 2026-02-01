@@ -159,27 +159,13 @@ export default function Menu() {
               >
                 Home
               </Link>
-              <a
-                href="#pizza"
+              <Link
+                href="/menu"
                 className="text-foreground hover:text-primary transition-colors py-2 text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Pizza
-              </a>
-              <a
-                href="#antipasti"
-                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Antipasti
-              </a>
-              <a
-                href="#getraenke"
-                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Getränke
-              </a>
+                Menü
+              </Link>
             </div>
           </div>
         )}
