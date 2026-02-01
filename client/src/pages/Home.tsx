@@ -195,13 +195,16 @@ export default function Home() {
           {/* Content */}
           <div className="px-6 md:px-0">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Willkommen bei Mago Dei Cuori
+              Sehr geehrte Gäste
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              In unserem Haus legen wir größten Wert auf die hohe Qualität unserer Zutaten und die Authentizität unserer Rezepte. Unser Teig wird nach den ältesten und bewährtesten Rezepten Italiens hergestellt.
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+              Herzlich willkommen in unserem Restaurant, wo die Aromen Italiens auf den Teller gebracht und kulinarische Geschichten erzählt werden. In unserem Haus legen wir größten Wert auf die hohe Qualität unserer Zutaten und die Authentizität unserer Rezepte, die das Herzstück unserer Küche bilden.
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+              Ein besonderes Augenmerk richten wir auf unseren Teig, das Fundament unserer exquisiten Pizza. Unser Teig wird nach den ältesten und bewährtesten Rezepten Italiens hergestellt, ein Erbe, das wir mit Stolz und Sorgfalt bewahren.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Wir freuen uns besonders, Ihnen unsere Spezialität – die Pizza Neapolitana Contemporana – präsentieren zu dürfen. Besuchen Sie uns und erleben Sie echte italienische Gastfreundschaft.
+              Mit Stolz bringen wir ein Stück Napoli nach Purkersdorf. Unsere Vision ist es, Ihnen nicht nur eine Mahlzeit, sondern ein echtes Stück italienischer Kultur und Lebensfreude zu servieren.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-foreground">
