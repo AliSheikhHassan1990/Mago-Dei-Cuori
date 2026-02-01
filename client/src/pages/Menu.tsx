@@ -196,9 +196,37 @@ export default function Menu() {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Unser Menü
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Authentische neapolitanische Pizza und mediterrane Köstlichkeiten
             </p>
+
+            {/* Quick Navigation */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              <a href="#bestseller" className="px-4 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors text-sm md:text-base">
+                Bestseller
+              </a>
+              <a href="#pizza" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Pizza
+              </a>
+              <a href="#antipasti" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Antipasti
+              </a>
+              <a href="#salat" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Salat
+              </a>
+              <a href="#extras" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Extras
+              </a>
+              <a href="#getraenke" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Getränke
+              </a>
+              <a href="#kaffee-tee" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Kaffee & Tee
+              </a>
+              <a href="#dolce" className="px-4 py-2 bg-white border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-colors text-sm md:text-base">
+                Dolce
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -234,7 +262,7 @@ export default function Menu() {
       </section>
 
       {/* Bestseller Section */}
-      <section className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
+      <section id="bestseller" className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 scroll-mt-20">
         <div className="container">
           <div className="text-center mb-6">
             <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full mb-4">
@@ -280,7 +308,7 @@ export default function Menu() {
       <section className="py-8 md:py-12">
         <div className="container">
           {menuCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} id={category.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '')} className="mb-12">
+            <div key={categoryIndex} id={category.category.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/&/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')} className="mb-12 scroll-mt-20">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 border-b border-primary pb-2">
                 {category.category}
               </h2>
