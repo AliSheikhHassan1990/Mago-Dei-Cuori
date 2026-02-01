@@ -108,28 +108,28 @@ export default function Home() {
 
   const reviews = [
     {
-      name: 'Marco Rossi',
+      name: 'Alexander',
       rating: 5,
-      text: 'Fantastische Pizza! Der Teig ist perfekt und die Zutaten sind hochwertig. Sehr zu empfehlen!',
+      text: 'Sehr gute Pizza, der Teig wird 72 Stunden gereift, alle Zutaten sind Top und das schmeckt man auch. Die beiden Besitzer sind überaus freundlich und Preise fair. So gut war die Pizza!',
       image: '👨'
     },
     {
-      name: 'Giulia Ferrari',
+      name: 'Christoph Winter',
       rating: 5,
-      text: 'Das beste italienische Restaurant in der Stadt. Authentische Rezepte und wunderbare Atmosphäre.',
-      image: '👩'
-    },
-    {
-      name: 'Antonio Bianchi',
-      rating: 5,
-      text: 'Hervorragende Qualität und freundlicher Service. Ich komme gerne wieder!',
+      text: 'Unfassbar köstliche Pizzen, den 72 Stunden gereiften Sauerteig schmeckt man deutlich raus. Die Zutaten sind erlesen und der Preis ist mehr als gerechtfertigt. Kommen definitiv wieder - Absolute Empfehlung.',
       image: '👨'
     },
     {
-      name: 'Sofia Lombardi',
+      name: 'Margit',
       rating: 5,
-      text: 'Einfach köstlich! Die Pasta ist al dente und die Saucen sind selbstgemacht.',
+      text: 'Wir haben eine ganz wunderbare Pizza bekommen. Neapolitanischer Pizzateig mit einer Langzeitgare von 72 Stunden und authentische Beläge. Man merkt dem Besitzer an, dass er die Pizzeria mit großem Herzblut führt. Wir kommen sicher wieder!',
       image: '👩'
+    },
+    {
+      name: 'Basslastiger',
+      rating: 5,
+      text: 'Wow!! Also ich war in ganz Italien, und überall hab ich Pizza gegessen, aber so noch nie!! Ein super freundlicher Besitzer, ein wunderbarer Koch... Geht hin und überzeugt Euch selbst!!! Das ist der Hammer!!!',
+      image: '👨'
     }
   ];
 
