@@ -30,7 +30,7 @@ jobs:
       - name: Deploy via SFTP
         uses: Dylan700/sftp-upload-action@latest
         with:
-          server: ${{ secrets.IONOS_HOST }}
+          server: ${{ vars.IONOS_HOST }}
           username: ${{ vars.IONOS_USER }}
           password: ${{ secrets.IONOS_PASS }}
           port: 22
