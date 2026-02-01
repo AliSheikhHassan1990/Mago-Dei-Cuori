@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pnpm install:*)",
-      "Bash(pnpm dev)"
+      "Bash(pnpm dev)",
+      "WebFetch(domain:maps.app.goo.gl)",
+      "WebFetch(domain:www.google.com)"
     ]
   }
 }

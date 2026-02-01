@@ -206,15 +206,15 @@ export default function Home() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-foreground">
                 <Clock className="w-5 h-5 text-primary" />
-                <span>Täglich geöffnet</span>
+                <span>Mi-So: 11:00-14:30 & 17:00-21:00</span>
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span>Purkersdorf, Österreich</span>
+                <span>Wiener Straße 30, 3002 Purkersdorf</span>
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>Kontaktieren Sie uns</span>
+                <span>+43 2231 20002</span>
               </div>
             </div>
           </div>
@@ -374,8 +374,8 @@ export default function Home() {
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Adresse</h3>
                 <p className="text-muted-foreground text-sm">
-                  Purkersdorf<br />
-                  Österreich
+                  Wiener Straße 30<br />
+                  3002 Purkersdorf
                 </p>
               </div>
 
@@ -383,8 +383,9 @@ export default function Home() {
                 <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Öffnungszeiten</h3>
                 <p className="text-muted-foreground text-sm">
-                  Täglich geöffnet<br />
-                  Besuchen Sie uns!
+                  Mo-Di: Geschlossen<br />
+                  Mi-So: 11:00-14:30<br />
+                  & 17:00-21:00
                 </p>
               </div>
 
@@ -392,8 +393,8 @@ export default function Home() {
                 <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Kontakt</h3>
                 <p className="text-muted-foreground text-sm">
-                  Folgen Sie uns auf<br />
-                  Google, Facebook, TripAdvisor
+                  +43 2231 20002<br />
+                  Magodeicuori@gmail.com
                 </p>
               </div>
             </div>
@@ -409,6 +410,9 @@ export default function Home() {
       <footer className="bg-foreground text-primary-foreground py-8">
         <div className="container text-center">
           <p className="mb-2">© 2025 Mago Dei Cuori. Alle Rechte vorbehalten.</p>
+          <p className="text-sm opacity-75 mb-2">
+            Wiener Straße 30, 3002 Purkersdorf | +43 2231 20002
+          </p>
           <p className="text-sm opacity-75">
             Authentische neapolitanische Pizza in Purkersdorf
           </p>
