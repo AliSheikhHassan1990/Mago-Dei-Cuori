@@ -1,9 +1,20 @@
-import { useState } from 'react';
-import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function Menu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const bestsellers = [
+    { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€14,50', allergens: 'AGO' },
+    { name: 'Tonno E Magia', description: 'San Marzano DOP, Fior di Latte, Tonno, karamellisierte Zwiebel, Olivenbrösel', price: '€13,50', allergens: 'AGD' },
+    { name: 'Quattro Stagioni', description: 'San Marzano DOP, Fior di Latte, Champignons, Arrosto di tacchino, Salami, Artischocken', price: '€13,90', allergens: 'AG' },
+  ];
 
   const menuCategories = [
     {
@@ -192,6 +203,48 @@ export default function Menu() {
         </div>
       </section>
 
+      {/* Bestseller Section */}
+      <section className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
+        <div className="container">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full mb-4">
+              <Star className="w-5 h-5 fill-current" />
+              <span className="font-bold">Bestseller</span>
+              <Star className="w-5 h-5 fill-current" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              Unsere beliebtesten Pizzen
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {bestsellers.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                  TOP {index + 1}
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2 pr-12">
+                  {item.name}
+                  {item.allergens && (
+                    <span className="text-xs text-muted-foreground ml-2 font-normal">
+                      ({item.allergens})
+                    </span>
+                  )}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  {item.description}
+                </p>
+                <span className="text-xl font-bold text-primary">
+                  {item.price}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Menu Section */}
       <section className="py-8 md:py-12">
         <div className="container">
@@ -263,7 +316,7 @@ export default function Menu() {
               <div className="flex flex-col items-center gap-2">
                 <Phone className="w-6 h-6 text-primary" />
                 <p className="text-sm text-muted-foreground">
-                  +43 2231 20002
+                  +43 2231 61633
                 </p>
               </div>
             </div>
@@ -276,7 +329,7 @@ export default function Menu() {
         <div className="container text-center">
           <p className="mb-2">© 2025 Mago Dei Cuori. Alle Rechte vorbehalten.</p>
           <p className="text-sm opacity-75">
-            Wiener Straße 30, 3002 Purkersdorf | +43 2231 20002
+            Wiener Straße 30, 3002 Purkersdorf | +43 2231 61633
           </p>
         </div>
       </footer>

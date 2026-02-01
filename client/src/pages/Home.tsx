@@ -103,9 +103,11 @@ export default function Home() {
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Mit Stolz bringen wir ein Stück Napoli nach Purkersdorf. Traditionelle Rezepte aus Neapel, zubereitet mit den besten Zutaten aus Italien.
               </p>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
-                Reservierung
-              </Button>
+              <a href="tel:+43223161633">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
+                  Reservierung
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -167,7 +169,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+43 2231 20002</span>
+                <span>+43 2231 61633</span>
               </div>
             </div>
           </div>
@@ -329,13 +331,11 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-lg border border-border">
+              <div className="bg-white p-8 rounded-lg border border-border text-center">
                 <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Kontakt</h3>
-                <p className="text-muted-foreground text-sm">
-                  +43 2231 20002<br />
-                  Magodeicuori@gmail.com
-                </p>
+                <p className="text-muted-foreground text-sm">+43 2231 61633</p>
+                <p className="text-muted-foreground text-sm break-all">Magodeicuori@gmail.com</p>
               </div>
             </div>
 
@@ -387,9 +387,11 @@ export default function Home() {
               </a>
             </div>
 
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
-              Reservierung anfragen
-            </Button>
+            <a href="tel:+43223161633">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
+                Reservierung anfragen
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -405,7 +407,7 @@ export default function Home() {
           </div>
           <p className="mb-2">© 2025 Mago Dei Cuori. Alle Rechte vorbehalten.</p>
           <p className="text-sm opacity-75 mb-4">
-            Wiener Straße 30, 3002 Purkersdorf | +43 2231 20002
+            Wiener Straße 30, 3002 Purkersdorf | +43 2231 61633
           </p>
 
           {/* Social Media Footer */}
