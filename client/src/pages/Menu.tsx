@@ -1,7 +1,10 @@
-import { MapPin, Clock, Phone, ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function Menu() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const menuCategories = [
     {
       category: 'Pizza',
@@ -123,13 +126,52 @@ export default function Menu() {
               <h1 className="text-xl font-bold text-foreground">Mago Dei Cuori</h1>
             </Link>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
-            <a href="#pizza" className="text-foreground hover:text-primary transition-colors">Pizza</a>
-            <a href="#antipasti" className="text-foreground hover:text-primary transition-colors">Antipasti</a>
-            <a href="#getraenke" className="text-foreground hover:text-primary transition-colors">Getränke</a>
-          </div>
+
+          {/* Menu Button */}
+          <button
+            className="p-2 text-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Menü öffnen"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="bg-white border-t border-border">
+            <div className="container py-4 flex flex-col gap-4">
+              <Link
+                href="/"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a
+                href="#pizza"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Pizza
+              </a>
+              <a
+                href="#antipasti"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Antipasti
+              </a>
+              <a
+                href="#getraenke"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Getränke
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Back Button & Header */}

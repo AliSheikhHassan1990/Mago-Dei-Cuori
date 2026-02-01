@@ -1,4 +1,5 @@
-import { Star, MapPin, Clock, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { Star, MapPin, Clock, Phone, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -11,6 +12,8 @@ import { Link } from 'wouter';
  */
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const reviews = [
     {
       name: 'Alexander',
@@ -47,12 +50,45 @@ export default function Home() {
             <span className="text-2xl font-bold text-primary">🍕</span>
             <h1 className="text-xl font-bold text-foreground">Mago Dei Cuori</h1>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/menu" className="text-foreground hover:text-primary transition-colors">Menü</Link>
-            <a href="#reviews" className="text-foreground hover:text-primary transition-colors">Bewertungen</a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">Kontakt</a>
-          </div>
+
+          {/* Menu Button */}
+          <button
+            className="p-2 text-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Menü öffnen"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="bg-white border-t border-border">
+            <div className="container py-4 flex flex-col gap-4">
+              <Link
+                href="/menu"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Menü
+              </Link>
+              <a
+                href="#reviews"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Bewertungen
+              </a>
+              <a
+                href="#contact"
+                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Kontakt
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
