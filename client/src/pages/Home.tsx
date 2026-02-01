@@ -17,24 +17,24 @@ export default function Home() {
         { name: 'Pizza Brot', description: 'mit Napoli Sauce', price: '€5,90', allergens: 'A' },
         { name: 'Pizza Brot mit Käse', description: 'mit Provola DOP Affumicata', price: '€6,90', allergens: 'AG' },
         { name: 'Maze Mix', description: 'zur Auswahl: Hummus, Muhammara, Mutabal, Labneh, Zeyton', price: '€14,50', allergens: 'ANG' },
-        { name: 'Hummus', description: 'Kichererbsen-Dip', price: '€5,50', allergens: 'NG' },
-        { name: 'Muhammara', description: 'Paprika-Walnuss-Dip', price: '€5,50', allergens: 'NG' },
-        { name: 'Mutabal', description: 'Auberginen-Dip', price: '€5,50', allergens: 'NG' },
-        { name: 'Labneh', description: 'Joghurt-Dip', price: '€5,50', allergens: 'G' },
-        { name: 'Zeyton', description: 'Oliven', price: '€4,50', allergens: '' },
+        { name: 'Hummus', description: '', price: '€5,50', allergens: 'NG' },
+        { name: 'Muhammara', description: '', price: '€5,50', allergens: 'NG' },
+        { name: 'Mutabal', description: '', price: '€5,50', allergens: 'NG' },
+        { name: 'Labneh', description: '', price: '€5,50', allergens: 'G' },
+        { name: 'Zeyton', description: '', price: '€4,50', allergens: '' },
       ]
     },
     {
       category: 'Salat',
       items: [
-        { name: 'Gemischter Salat', description: 'Frischer gemischter Salat', price: '€6,50', allergens: '' },
-        { name: 'Burrata Salat', description: 'Mit cremiger Burrata', price: '€8,90', allergens: 'G' },
-        { name: 'Mozzarella Salat', description: 'Mit frischem Mozzarella', price: '€8,90', allergens: 'G' },
-        { name: 'Fatusch Salat', description: 'Orientalischer Salat', price: '€8,90', allergens: 'G' },
+        { name: 'Gemischter Salat', description: '', price: '€6,50', allergens: '' },
+        { name: 'Burrata Salat', description: '', price: '€8,90', allergens: 'G' },
+        { name: 'Mozzarella Salat', description: '', price: '€8,90', allergens: 'G' },
+        { name: 'Fatusch Salat', description: '', price: '€8,90', allergens: 'G' },
       ]
     },
     {
-      category: 'Pizza',
+      category: 'Pizza (Klassiker)',
       items: [
         { name: 'Regina Margherita', description: 'San Marzano DOP, Fior di Latte, frischer Basilikum, Parmesan', price: '€9,50', allergens: 'AG' },
         { name: 'Marinara (vegan)', description: 'San Marzano DOP, Olivenöl, Oregano', price: '€8,50', allergens: 'AG' },
@@ -43,54 +43,47 @@ export default function Home() {
         { name: 'Quattro Formaggi', description: 'Taleggio DOP, Crema di Mozzarella, Gorgonzola, Provola Affumicata, Parmesan Chips, Walnüsse', price: '€13,50', allergens: 'AGEH' },
         { name: 'Capricciosa', description: 'San Marzano DOP, Fior di Latte, Prosciutto, Oliven, Schinken, Champignons, Artischocken', price: '€13,00', allergens: 'AG' },
         { name: 'Caprese', description: 'Mozzarella Creme, Fior di Latte, Cherry Tomaten, Basilikum, Parmesan, Olivenöl', price: '€12,00', allergens: 'AG' },
-        { name: 'Ricotta Spinaci', description: 'Ricotta, Pfeffer, Parmesan, Olivenöl, Spinat, Granatapfel Sirup', price: '€12,50', allergens: 'AG' },
+        { name: 'Ricotta Spinaci', description: 'Ricotta, Pfeffer, Parmesan, Olivenöl, Spinat, Granatapfel Syrup', price: '€12,50', allergens: 'AG' },
         { name: 'Detox', description: 'Parmesan Creme, gemischte gegrillte Gemüse, Oregano', price: '€12,00', allergens: 'AG' },
         { name: 'Tonno e Magia', description: 'San Marzano DOP, Fior di Latte, Tonno, karamellisierte Zwiebel, Olivenbrösel', price: '€12,50', allergens: 'AGD' },
-        { name: 'Bresaola Lovers', description: 'San Marzano DOP, Fior di Latte, Rucola, Bresaola, Parmesan', price: '€13,00', allergens: 'AG' },
+        { name: 'Bresaola Lovers', description: 'San Marzano DOP, Fior di Latte, Rucola, Bresaola, Parmesan', price: '€13,00', allergens: 'AGO' },
         { name: 'Colorata', description: 'San Marzano DOP, Fior di Latte, Gorgonzola, Paprika, Zucchini, Gemüse Creme', price: '€12,00', allergens: 'AG' },
         { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€13,50', allergens: 'AG' },
-        { name: 'Burrata e Pistacchio', description: 'Pistacchio Paste DOP, Fior di Latte, Burrata', price: '€13,50', allergens: 'AGE' },
-        { name: 'Giardiniera', description: 'San Marzano DOP, Fior di Latte, Rucola, Cherry Tomaten', price: '€12,50', allergens: 'AG' },
-        { name: 'Diavolo', description: 'San Marzano DOP, Fior di Latte, Salami, Schinken', price: '€12,50', allergens: 'AG' },
-        { name: 'Prosciutto e Funghi', description: 'San Marzano DOP, Fior di Latte, Prosciutto, Champignons, Basilikum, Parmesan', price: '€12,50', allergens: 'AG' },
-        { name: 'Parmigiana e Fumo', description: 'San Marzano DOP, Parmigiana di Melanzane, Provola Affumicata, Basilikum Creme', price: '€12,50', allergens: 'AG' },
-        { name: 'Pesto e Fumo', description: 'Pesto alla Genovese, Provola Affumicata, Cherry Tomaten, Pinien', price: '€13,50', allergens: 'AGE' },
-        { name: 'Quattro Stagioni', description: 'San Marzano DOP, Fior di Latte, Champignons, Artischocken, Schinken, Salami', price: '€13,50', allergens: 'AGE' },
-        { name: 'Gennaro', description: 'San Marzano DOP, Fior di Latte, Salami, Melanzani, Parmesan, Olivenöl', price: '€12,90', allergens: 'AGE' },
-        { name: 'Pizza Vegano', description: 'San Marzano DOP, Champignons, Paprika, Spinat', price: '€11,90', allergens: 'AG' },
-        { name: "Mago d'Oriente", description: 'Kräutermix mit Sesam, Fior di Latte, Olivenöl', price: '€10,90', allergens: 'AG' },
-        { name: 'Calzone Classico', description: 'San Marzano DOP, Fior di Latte, Schinken, Basilikum, Ricotta, Parmesan', price: '€12,00', allergens: 'AG' },
       ]
     },
     {
-      category: 'Dolce',
+      category: 'Pizza (Weitere Sorten)',
       items: [
-        { name: 'Tiramisu des Tages', description: 'Hausgemachtes Tiramisu', price: '€4,90', allergens: 'G' },
-        { name: 'Mohr im Hemd', description: 'Klassisches österreichisches Dessert', price: '€4,90', allergens: 'G' },
-        { name: 'Pizza Nutella', description: 'Süße Pizza mit Nutella', price: '€7,90', allergens: 'AG' },
-        { name: 'Dolce di Magia', description: 'Hausspezialität', price: '€5,90', allergens: '' },
+        { name: 'Burrata e Pistacchio', description: '', price: '€13,50', allergens: 'AGE' },
+        { name: 'Giardiniera (Rucola)', description: '', price: '€12,50', allergens: 'AG' },
+        { name: 'Diavolo', description: '', price: '€12,50', allergens: 'AG' },
+        { name: 'Prosciutto e Funghi', description: '', price: '€12,50', allergens: 'AG' },
+        { name: 'Parmigiana e Fumo', description: '', price: '€12,50', allergens: 'AG' },
+        { name: 'Pesto e Fumo', description: '', price: '€13,50', allergens: 'AGE' },
+        { name: 'Quattro Stagioni', description: '', price: '€13,50', allergens: 'AGE' },
+        { name: 'Gennaro', description: '', price: '€12,90', allergens: 'AGE' },
+        { name: 'Pizza Vegano', description: '', price: '€11,90', allergens: 'AG' },
+        { name: "Mago d'Oriente", description: '', price: '€10,90', allergens: 'AG' },
+        { name: 'Calzone Classico', description: '', price: '€12,00', allergens: 'AG' },
       ]
     },
     {
-      category: 'Kaffee & Tee',
+      category: 'Extras',
       items: [
-        { name: 'Espresso', description: 'Italienischer Espresso', price: '€2,90', allergens: '' },
-        { name: 'Espresso Doppel', description: 'Doppelter Espresso', price: '€3,90', allergens: '' },
-        { name: 'Verlängerter', description: 'Verlängerter Kaffee', price: '€3,80', allergens: '' },
-        { name: 'Melange', description: 'Wiener Melange', price: '€3,50', allergens: '' },
-        { name: 'Cappuccino', description: 'Klassischer Cappuccino', price: '€3,50', allergens: '' },
-        { name: 'Latte Macchiato', description: 'Latte Macchiato', price: '€3,90', allergens: '' },
-        { name: 'Schwarztee', description: 'Schwarzer Tee', price: '€3,50', allergens: '' },
-        { name: 'Grüntee', description: 'Grüner Tee', price: '€3,50', allergens: '' },
+        { name: 'Mozzarella, Gorgonzola, Ricotta, Pesto, Rucola, Parmesan Chips', description: '', price: '€2,00', allergens: '' },
+        { name: 'Oliven, Kapern, Mais, Cherry Tomaten, Paprika, karamellisierte Zwiebel, Artischocken, Champignons, Spinat, Pfefferone, scharfe Peperoncini, Basilikum', description: '', price: '€1,50', allergens: '' },
+        { name: 'Gegrillte Melanzani, gegrillte Zucchini', description: '', price: '€2,00', allergens: '' },
+        { name: 'Thunfisch, Sardellen, Schinken, Salami', description: '', price: '€3,00', allergens: '' },
+        { name: 'Knoblauch, Tabasco', description: '', price: '€1,00', allergens: '' },
       ]
     },
     {
       category: 'Getränke',
       items: [
-        { name: 'Orangen Gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
-        { name: 'Apfel Gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
-        { name: 'Himbeer Gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
-        { name: 'Holunder Gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
+        { name: 'Orangen gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Apfel gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Himbeer gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
+        { name: 'Hollunder gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
         { name: 'Soda', description: '0,25l / 0,5l', price: '€2,20 / €2,60', allergens: '' },
         { name: 'Soda Zitrone', description: '0,33l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
         { name: 'Coca Cola / Light / Zero', description: '0,3l', price: '€2,50', allergens: '' },
@@ -98,10 +91,32 @@ export default function Home() {
         { name: 'Almdudler', description: '0,3l', price: '€2,50', allergens: '' },
         { name: 'Sprite', description: '0,33l', price: '€2,50', allergens: '' },
         { name: 'Red Bull', description: '0,25l', price: '€3,00', allergens: '' },
-        { name: 'Eistee Pfirsich/Zitrone', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Eistee Pfirsich-Zitrone', description: '0,3l', price: '€2,50', allergens: '' },
         { name: 'Frucade Orange', description: '0,33l', price: '€2,50', allergens: '' },
-        { name: 'Alkoholfreies Bier/Radler', description: '0,33l', price: '€3,00', allergens: '' },
-        { name: 'Wasser still/prickelnd', description: '0,5l', price: '€3,00', allergens: '' },
+        { name: 'Alkoholfreies Bier / Radler', description: '0,33l', price: '€3,00', allergens: '' },
+        { name: 'Wasser still / prickelnd', description: '0,5l', price: '€3,00', allergens: '' },
+      ]
+    },
+    {
+      category: 'Kaffee / Tee',
+      items: [
+        { name: 'Espresso', description: '', price: '€2,90', allergens: '' },
+        { name: 'Espresso doppelt', description: '', price: '€3,90', allergens: '' },
+        { name: 'Verlängerter', description: '', price: '€3,80', allergens: '' },
+        { name: 'Melange', description: '', price: '€3,50', allergens: '' },
+        { name: 'Cappucino', description: '', price: '€3,50', allergens: '' },
+        { name: 'Latte Macchiato', description: '', price: '€3,90', allergens: '' },
+        { name: 'Schwarztee', description: '', price: '€3,50', allergens: '' },
+        { name: 'Grüntee', description: '', price: '€3,50', allergens: '' },
+      ]
+    },
+    {
+      category: 'Dolce',
+      items: [
+        { name: 'Tiramisu des Tages', description: '', price: '€4,90', allergens: 'G' },
+        { name: 'Mohr im Hemd', description: '', price: '€4,90', allergens: 'G' },
+        { name: 'Pizza Nutella', description: '', price: '€7,90', allergens: 'AG' },
+        { name: 'Dolce di Magia', description: '', price: '€5,90', allergens: '' },
       ]
     },
   ];
@@ -201,10 +216,19 @@ export default function Home() {
               Herzlich willkommen in unserem Restaurant, wo die Aromen Italiens auf den Teller gebracht und kulinarische Geschichten erzählt werden. In unserem Haus legen wir größten Wert auf die hohe Qualität unserer Zutaten und die Authentizität unserer Rezepte, die das Herzstück unserer Küche bilden.
             </p>
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Ein besonderes Augenmerk richten wir auf unseren Teig, das Fundament unserer exquisiten Pizza. Unser Teig wird nach den ältesten und bewährtesten Rezepten Italiens hergestellt, ein Erbe, das wir mit Stolz und Sorgfalt bewahren.
+              Unser Menü ist das Ergebnis einer sorgfältigen Auswahl hochwertigster Zutaten, die wir mit größter Sorgfalt und Respekt behandeln. Wir glauben fest daran, dass die Qualität eines Gerichts direkt mit der Herkunft seiner Zutaten verbunden ist. Deshalb beziehen wir unsere Produkte ausschließlich von vertrauenswürdigen Lieferanten, die unsere Leidenschaft für Exzellenz teilen. Ob frisches Gemüse, erlesene Kräuter oder Premium-Fleisch und -Fisch, jedes Element in unseren Kreationen wurde sorgfältig ausgewählt, um seinen einzigartigen Geschmack und seine Frische zu gewährleisten.
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+              Ein besonderes Augenmerk richten wir auf unseren Teig, das Fundament unserer exquisiten Pizza. Unser Teig wird nach den ältesten und bewährtesten Rezepten Italiens hergestellt, ein Erbe, das wir mit Stolz und Sorgfalt bewahren. Diese Rezepte, die seit Generationen weitergegeben werden, spiegeln die Tiefe und Reinheit der italienischen Kochtradition wider. In jedem Bissen unserer Pizza können Sie die Geschichte und die Leidenschaft schmecken, die in diesem zeitlosen Handwerk stecken.
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+              Wir freuen uns besonders, Ihnen unsere Spezialität – die Pizza Neapolitana Contemporana – präsentieren zu dürfen. Diese Pizza ist eine Hommage an die klassische Kunst der Pizzaherstellung aus Neapel, verfeinert mit einem modernen Twist, der Ihren Gaumen auf eine unvergessliche Geschmacksreise mitnimmt. Die Kombination aus frischen, sorgfältig ausgewählten Zutaten und dem perfekt gebackenen, luftigen Teig schafft ein kulinarisches Erlebnis, das sowohl traditionell als auch innovativ ist.
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+              Mit Stolz bringen wir ein Stück Napoli nach Purkersdorf. Unsere Vision ist es, Ihnen nicht nur eine Mahlzeit, sondern ein echtes Stück italienischer Kultur und Lebensfreude zu servieren. Jede Pizza, die wir zubereiten, ist ein Ausdruck unserer Hingabe an Qualität, Authentizität und kulinarische Exzellenz.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Mit Stolz bringen wir ein Stück Napoli nach Purkersdorf. Unsere Vision ist es, Ihnen nicht nur eine Mahlzeit, sondern ein echtes Stück italienischer Kultur und Lebensfreude zu servieren.
+              Wir laden Sie ein, sich zurückzulehnen, zu entspannen und die Aromen Italiens zu genießen, die wir mit viel Liebe und Fachkenntnis für Sie zubereiten. Möge Ihr Besuch bei uns nicht nur eine Mahlzeit, sondern eine Erinnerung sein, die Sie schätzen und auf die Sie mit Freude zurückblicken.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-foreground">
@@ -460,6 +484,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-foreground text-primary-foreground py-8">
         <div className="container text-center">
+          <div className="mb-6 p-4 bg-white/10 rounded-lg">
+            <p className="text-lg font-semibold mb-2">Herzlichen Dank für Ihren Besuch.</p>
+            <p className="text-sm opacity-90">
+              Wir würden uns über eine Bewertung online auf Google, Facebook und Tripadvisor freuen.
+            </p>
+          </div>
           <p className="mb-2">© 2025 Mago Dei Cuori. Alle Rechte vorbehalten.</p>
           <p className="text-sm opacity-75 mb-4">
             Wiener Straße 30, 3002 Purkersdorf | +43 2231 20002
