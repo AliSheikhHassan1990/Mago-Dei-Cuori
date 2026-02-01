@@ -10,37 +10,100 @@ import { Button } from '@/components/ui/button';
  */
 
 export default function Home() {
-  const menuItems = [
+  const menuCategories = [
     {
-      name: 'Margherita',
-      description: 'Klassische Pizza mit Mozzarella, Tomaten und frischem Basilikum',
-      price: '€12,50'
+      category: 'Antipasti',
+      items: [
+        { name: 'Pizza Brot', description: 'mit Napoli Sauce', price: '€5,90', allergens: 'A' },
+        { name: 'Pizza Brot mit Käse', description: 'mit Provola DOP Affumicata', price: '€6,90', allergens: 'AG' },
+        { name: 'Maze Mix', description: 'zur Auswahl: Hummus, Muhammara, Mutabal, Labneh, Zeyton', price: '€14,50', allergens: 'ANG' },
+        { name: 'Hummus', description: 'Kichererbsen-Dip', price: '€5,50', allergens: 'NG' },
+        { name: 'Muhammara', description: 'Paprika-Walnuss-Dip', price: '€5,50', allergens: 'NG' },
+        { name: 'Mutabal', description: 'Auberginen-Dip', price: '€5,50', allergens: 'NG' },
+        { name: 'Labneh', description: 'Joghurt-Dip', price: '€5,50', allergens: 'G' },
+        { name: 'Zeyton', description: 'Oliven', price: '€4,50', allergens: '' },
+      ]
     },
     {
-      name: 'Quattro Formaggi',
-      description: 'Vier Käsesorten: Mozzarella, Gorgonzola, Pecorino und Ricotta',
-      price: '€14,50'
+      category: 'Salat',
+      items: [
+        { name: 'Gemischter Salat', description: 'Frischer gemischter Salat', price: '€6,50', allergens: '' },
+        { name: 'Burrata Salat', description: 'Mit cremiger Burrata', price: '€8,90', allergens: 'G' },
+        { name: 'Mozzarella Salat', description: 'Mit frischem Mozzarella', price: '€8,90', allergens: 'G' },
+        { name: 'Fatusch Salat', description: 'Orientalischer Salat', price: '€8,90', allergens: 'G' },
+      ]
     },
     {
-      name: 'Prosciutto e Rucola',
-      description: 'Prosciutto di Parma, frische Rucola und Parmigiano-Reggiano',
-      price: '€13,50'
+      category: 'Pizza',
+      items: [
+        { name: 'Regina Margherita', description: 'San Marzano DOP, Fior di Latte, frischer Basilikum, Parmesan', price: '€9,50', allergens: 'AG' },
+        { name: 'Marinara (vegan)', description: 'San Marzano DOP, Olivenöl, Oregano', price: '€8,50', allergens: 'AG' },
+        { name: 'Salami', description: 'San Marzano DOP, Fior di Latte, Salami', price: '€11,50', allergens: 'AG' },
+        { name: 'Siciliana', description: 'San Marzano DOP, Sardellen, Olivenöl, Oregano, Kapern, Oliven', price: '€13,00', allergens: 'AGD' },
+        { name: 'Quattro Formaggi', description: 'Taleggio DOP, Crema di Mozzarella, Gorgonzola, Provola Affumicata, Parmesan Chips, Walnüsse', price: '€13,50', allergens: 'AGEH' },
+        { name: 'Capricciosa', description: 'San Marzano DOP, Fior di Latte, Prosciutto, Oliven, Schinken, Champignons, Artischocken', price: '€13,00', allergens: 'AG' },
+        { name: 'Caprese', description: 'Mozzarella Creme, Fior di Latte, Cherry Tomaten, Basilikum, Parmesan, Olivenöl', price: '€12,00', allergens: 'AG' },
+        { name: 'Ricotta Spinaci', description: 'Ricotta, Pfeffer, Parmesan, Olivenöl, Spinat, Granatapfel Sirup', price: '€12,50', allergens: 'AG' },
+        { name: 'Detox', description: 'Parmesan Creme, gemischte gegrillte Gemüse, Oregano', price: '€12,00', allergens: 'AG' },
+        { name: 'Tonno e Magia', description: 'San Marzano DOP, Fior di Latte, Tonno, karamellisierte Zwiebel, Olivenbrösel', price: '€12,50', allergens: 'AGD' },
+        { name: 'Bresaola Lovers', description: 'San Marzano DOP, Fior di Latte, Rucola, Bresaola, Parmesan', price: '€13,00', allergens: 'AG' },
+        { name: 'Colorata', description: 'San Marzano DOP, Fior di Latte, Gorgonzola, Paprika, Zucchini, Gemüse Creme', price: '€12,00', allergens: 'AG' },
+        { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€13,50', allergens: 'AG' },
+        { name: 'Burrata e Pistacchio', description: 'Pistacchio Paste DOP, Fior di Latte, Burrata', price: '€13,50', allergens: 'AGE' },
+        { name: 'Giardiniera', description: 'San Marzano DOP, Fior di Latte, Rucola, Cherry Tomaten', price: '€12,50', allergens: 'AG' },
+        { name: 'Diavolo', description: 'San Marzano DOP, Fior di Latte, Salami, Schinken', price: '€12,50', allergens: 'AG' },
+        { name: 'Prosciutto e Funghi', description: 'San Marzano DOP, Fior di Latte, Prosciutto, Champignons, Basilikum, Parmesan', price: '€12,50', allergens: 'AG' },
+        { name: 'Parmigiana e Fumo', description: 'San Marzano DOP, Parmigiana di Melanzane, Provola Affumicata, Basilikum Creme', price: '€12,50', allergens: 'AG' },
+        { name: 'Pesto e Fumo', description: 'Pesto alla Genovese, Provola Affumicata, Cherry Tomaten, Pinien', price: '€13,50', allergens: 'AGE' },
+        { name: 'Quattro Stagioni', description: 'San Marzano DOP, Fior di Latte, Champignons, Artischocken, Schinken, Salami', price: '€13,50', allergens: 'AGE' },
+        { name: 'Gennaro', description: 'San Marzano DOP, Fior di Latte, Salami, Melanzani, Parmesan, Olivenöl', price: '€12,90', allergens: 'AGE' },
+        { name: 'Pizza Vegano', description: 'San Marzano DOP, Champignons, Paprika, Spinat', price: '€11,90', allergens: 'AG' },
+        { name: "Mago d'Oriente", description: 'Kräutermix mit Sesam, Fior di Latte, Olivenöl', price: '€10,90', allergens: 'AG' },
+        { name: 'Calzone Classico', description: 'San Marzano DOP, Fior di Latte, Schinken, Basilikum, Ricotta, Parmesan', price: '€12,00', allergens: 'AG' },
+      ]
     },
     {
-      name: 'Diavola',
-      description: 'Würzige Pizza mit Peperoni, Chili und Mozzarella',
-      price: '€13,00'
+      category: 'Dolce',
+      items: [
+        { name: 'Tiramisu des Tages', description: 'Hausgemachtes Tiramisu', price: '€4,90', allergens: 'G' },
+        { name: 'Mohr im Hemd', description: 'Klassisches österreichisches Dessert', price: '€4,90', allergens: 'G' },
+        { name: 'Pizza Nutella', description: 'Süße Pizza mit Nutella', price: '€7,90', allergens: 'AG' },
+        { name: 'Dolce di Magia', description: 'Hausspezialität', price: '€5,90', allergens: '' },
+      ]
     },
     {
-      name: 'Carbonara',
-      description: 'Guanciale, Pecorino Romano, Ei und schwarzer Pfeffer',
-      price: '€14,00'
+      category: 'Kaffee & Tee',
+      items: [
+        { name: 'Espresso', description: 'Italienischer Espresso', price: '€2,90', allergens: '' },
+        { name: 'Espresso Doppel', description: 'Doppelter Espresso', price: '€3,90', allergens: '' },
+        { name: 'Verlängerter', description: 'Verlängerter Kaffee', price: '€3,80', allergens: '' },
+        { name: 'Melange', description: 'Wiener Melange', price: '€3,50', allergens: '' },
+        { name: 'Cappuccino', description: 'Klassischer Cappuccino', price: '€3,50', allergens: '' },
+        { name: 'Latte Macchiato', description: 'Latte Macchiato', price: '€3,90', allergens: '' },
+        { name: 'Schwarztee', description: 'Schwarzer Tee', price: '€3,50', allergens: '' },
+        { name: 'Grüntee', description: 'Grüner Tee', price: '€3,50', allergens: '' },
+      ]
     },
     {
-      name: 'Spaghetti Aglio e Olio',
-      description: 'Klassische italienische Pasta mit Knoblauch und Olivenöl',
-      price: '€9,50'
-    }
+      category: 'Getränke',
+      items: [
+        { name: 'Orangen Gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Apfel Gespritzt', description: '0,3l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Himbeer Gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
+        { name: 'Holunder Gespritzt', description: '0,3l / 0,5l', price: '€2,40 / €3,50', allergens: '' },
+        { name: 'Soda', description: '0,25l / 0,5l', price: '€2,20 / €2,60', allergens: '' },
+        { name: 'Soda Zitrone', description: '0,33l / 0,5l', price: '€2,50 / €3,50', allergens: '' },
+        { name: 'Coca Cola / Light / Zero', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Fanta', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Almdudler', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Sprite', description: '0,33l', price: '€2,50', allergens: '' },
+        { name: 'Red Bull', description: '0,25l', price: '€3,00', allergens: '' },
+        { name: 'Eistee Pfirsich/Zitrone', description: '0,3l', price: '€2,50', allergens: '' },
+        { name: 'Frucade Orange', description: '0,33l', price: '€2,50', allergens: '' },
+        { name: 'Alkoholfreies Bier/Radler', description: '0,33l', price: '€3,00', allergens: '' },
+        { name: 'Wasser still/prickelnd', description: '0,5l', price: '€3,00', allergens: '' },
+      ]
+    },
   ];
 
   const reviews = [
@@ -77,7 +140,7 @@ export default function Home() {
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold text-primary">🍕</span>
-            <h1 className="text-xl font-bold text-foreground">Bella Napoli</h1>
+            <h1 className="text-xl font-bold text-foreground">Mago Dei Cuori</h1>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#menu" className="text-foreground hover:text-primary transition-colors">Menü</a>
@@ -94,10 +157,10 @@ export default function Home() {
           <div className="flex flex-col justify-center px-6 md:px-12 py-12 md:py-0">
             <div className="max-w-lg">
               <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
-                Autentische Italienische Pizza
+                Authentische Neapolitanische Pizza
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Traditionelle Rezepte aus Neapel, zubereitet mit den besten Zutaten. Jede Pizza wird in unserem holzbefeuertem Ofen perfekt gebacken.
+                Mit Stolz bringen wir ein Stück Napoli nach Purkersdorf. Traditionelle Rezepte aus Neapel, zubereitet mit den besten Zutaten aus Italien.
               </p>
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
                 Reservierung
@@ -132,26 +195,26 @@ export default function Home() {
           {/* Content */}
           <div className="px-6 md:px-0">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Willkommen bei Bella Napoli
+              Willkommen bei Mago Dei Cuori
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Seit 1995 servieren wir authentische italienische Küche in einer warmen und einladenden Atmosphäre. Unser Holzofen wurde direkt aus Neapel importiert und verleiht unseren Pizzas den charakteristischen Geschmack und die perfekte Textur.
+              In unserem Haus legen wir größten Wert auf die hohe Qualität unserer Zutaten und die Authentizität unserer Rezepte. Unser Teig wird nach den ältesten und bewährtesten Rezepten Italiens hergestellt.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Jedes Gericht wird mit Liebe zum Detail zubereitet, unter Verwendung von frischen, hochwertigen Zutaten. Besuchen Sie uns und erleben Sie echte italienische Gastfreundschaft.
+              Wir freuen uns besonders, Ihnen unsere Spezialität – die Pizza Neapolitana Contemporana – präsentieren zu dürfen. Besuchen Sie uns und erleben Sie echte italienische Gastfreundschaft.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-foreground">
                 <Clock className="w-5 h-5 text-primary" />
-                <span>Täglich 11:00 - 23:00 Uhr</span>
+                <span>Täglich geöffnet</span>
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span>Hauptstraße 42, 10115 Berlin</span>
+                <span>Purkersdorf, Österreich</span>
               </div>
               <div className="flex items-center gap-3 text-foreground">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+49 30 12345678</span>
+                <span>Kontaktieren Sie uns</span>
               </div>
             </div>
           </div>
@@ -210,62 +273,46 @@ export default function Home() {
               Unser Menü
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Wählen Sie aus unserer Auswahl an traditionellen italienischen Pizzas und Pasta-Gerichten
+              Authentische neapolitanische Pizza und mediterrane Köstlichkeiten
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {menuItems.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg border border-border hover:shadow-lg transition-shadow duration-300"
-              >
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-lg font-bold text-primary">
-                    {item.price}
-                  </span>
-                  <Button variant="outline" size="sm">
-                    Wählen
-                  </Button>
-                </div>
+          {menuCategories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 border-b border-primary pb-2">
+                {category.category}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {category.items.map((item, itemIndex) => (
+                  <div
+                    key={itemIndex}
+                    className="bg-white p-4 rounded-lg border border-border hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="text-lg font-bold text-foreground">
+                        {item.name}
+                        {item.allergens && (
+                          <span className="text-xs text-muted-foreground ml-2 font-normal">
+                            ({item.allergens})
+                          </span>
+                        )}
+                      </h4>
+                      <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">
+                        {item.price}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          ))}
 
-      {/* Pasta Section */}
-      <section className="py-16 md:py-24 bg-secondary/30">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative h-[300px] md:h-[400px] overflow-hidden rounded-lg">
-            <img
-              src="/images/pasta-dish.png"
-              alt="Frische italienische Pasta"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="px-6 md:px-0">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Handgemachte Pasta
-            </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Unsere Pasta wird täglich frisch zubereitet. Wir verwenden nur hochwertige italienische Mehlsorten und traditionelle Rezepte, um die authentische Textur und den Geschmack zu bewahren.
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Von klassischen Saucen wie Carbonara und Bolognese bis zu modernen Kreationen – jedes Gericht ist ein Meisterwerk der italienischen Küche.
-            </p>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base">
-              Pasta-Menü ansehen
-            </Button>
+          <div className="mt-8 p-4 bg-secondary/50 rounded-lg text-sm text-muted-foreground">
+            <p className="font-semibold mb-2">Allergene:</p>
+            <p>A = Gluten, B = Krebstiere, C = Ei, D = Fisch, E = Erdnuss, F = Soja, G = Milch, H = Schalenfrüchte, L = Sellerie, M = Senf, N = Sesam, O = Sulfite, P = Lupinen, R = Weichtiere</p>
           </div>
         </div>
       </section>
@@ -278,7 +325,7 @@ export default function Home() {
               Kundenbewertungen
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Das sagen unsere zufriedenen Gäste über Bella Napoli
+              Das sagen unsere zufriedenen Gäste über Mago Dei Cuori
             </p>
           </div>
 
@@ -327,8 +374,8 @@ export default function Home() {
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Adresse</h3>
                 <p className="text-muted-foreground text-sm">
-                  Hauptstraße 42<br />
-                  10115 Berlin
+                  Purkersdorf<br />
+                  Österreich
                 </p>
               </div>
 
@@ -336,9 +383,8 @@ export default function Home() {
                 <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Öffnungszeiten</h3>
                 <p className="text-muted-foreground text-sm">
-                  Mo-Do: 11:00 - 23:00<br />
-                  Fr-Sa: 11:00 - 00:00<br />
-                  So: 12:00 - 23:00
+                  Täglich geöffnet<br />
+                  Besuchen Sie uns!
                 </p>
               </div>
 
@@ -346,8 +392,8 @@ export default function Home() {
                 <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-foreground mb-2">Kontakt</h3>
                 <p className="text-muted-foreground text-sm">
-                  +49 30 12345678<br />
-                  info@bellanapoli.de
+                  Folgen Sie uns auf<br />
+                  Google, Facebook, TripAdvisor
                 </p>
               </div>
             </div>
@@ -362,9 +408,9 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-foreground text-primary-foreground py-8">
         <div className="container text-center">
-          <p className="mb-2">© 2024 Bella Napoli. Alle Rechte vorbehalten.</p>
+          <p className="mb-2">© 2025 Mago Dei Cuori. Alle Rechte vorbehalten.</p>
           <p className="text-sm opacity-75">
-            Authentische italienische Küche seit 1995
+            Authentische neapolitanische Pizza in Purkersdorf
           </p>
         </div>
       </footer>
