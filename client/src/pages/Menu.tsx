@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star } from 'lucide-react';
+import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function Menu() {
@@ -203,6 +203,36 @@ export default function Menu() {
         </div>
       </section>
 
+      {/* Allergen Info Box */}
+      <section className="py-4">
+        <div className="container">
+          <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4 md:p-6">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-bold text-amber-800 mb-2 text-lg">Allergeninformation</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 text-sm">
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>A</strong> = Gluten</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>B</strong> = Krebstiere</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>C</strong> = Eier</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>D</strong> = Fisch</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>E</strong> = Erdnüsse</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>F</strong> = Soja</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>G</strong> = Milch</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>H</strong> = Schalenfrüchte</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>L</strong> = Sellerie</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>M</strong> = Senf</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>N</strong> = Sesam</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>O</strong> = Sulfite</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>P</strong> = Lupinen</span>
+                  <span className="bg-amber-100 px-2 py-1 rounded text-amber-800"><strong>R</strong> = Weichtiere</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bestseller Section */}
       <section className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10">
         <div className="container">
@@ -227,12 +257,13 @@ export default function Menu() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 pr-12">
                   {item.name}
-                  {item.allergens && (
-                    <span className="text-xs text-muted-foreground ml-2 font-normal">
-                      ({item.allergens})
-                    </span>
-                  )}
                 </h3>
+                {item.allergens && (
+                  <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded mb-2">
+                    <AlertCircle className="w-3 h-3" />
+                    {item.allergens}
+                  </div>
+                )}
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                   {item.description}
                 </p>
@@ -262,29 +293,25 @@ export default function Menu() {
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-lg font-bold text-foreground">
                         {item.name}
-                        {item.allergens && (
-                          <span className="text-xs text-muted-foreground ml-2 font-normal">
-                            ({item.allergens})
-                          </span>
-                        )}
                       </h3>
                       <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">
                         {item.price}
                       </span>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                       {item.description}
                     </p>
+                    {item.allergens && (
+                      <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded">
+                        <AlertCircle className="w-3 h-3" />
+                        Allergene: {item.allergens}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           ))}
-
-          <div className="mt-8 p-4 bg-secondary/50 rounded-lg text-sm text-muted-foreground">
-            <p className="font-semibold mb-2">Allergene:</p>
-            <p>A = Gluten, B = Krebstiere, C = Eier von Geflügel, D = Fisch, E = Erdnüsse, F = Sojabohnen, G = Milch von Säugetieren, H = Schalenfrüchte, L = Sellerie, M = Senf, N = Sesamsamen, O = Schwefeloxid und Sulfite, P = Lupinen, R = Weichtiere</p>
-          </div>
 
           <div className="mt-8 p-6 bg-white rounded-lg border border-border">
             <p className="text-sm text-muted-foreground mb-2">* Feinste Tomatensauce, hergestellt aus sonnengereiften San Marzano Tomaten aus Italien – bekannt für ihr unvergleichliches Aroma und ihre natürliche Süße</p>
