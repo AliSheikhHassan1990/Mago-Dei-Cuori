@@ -21,6 +21,12 @@ jobs:
       - run: pnpm run build
   
 
+      - name: Print variables
+        run: |
+          echo "IONOS_HOST: ${{ secrets.IONOS_HOST }}"
+          echo "IONOS_USER: ${{ vars.IONOS_USER }}"
+          echo "IONOS_PASS: [MASKED]"
+
       - name: Deploy via SFTP
         uses: Dylan700/sftp-upload-action@latest
         with:
