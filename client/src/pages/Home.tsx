@@ -190,15 +190,26 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Image with Parallax */}
+          {/* Hero Image with Parallax - fully integrated */}
           <div className="relative h-[400px] md:h-auto overflow-hidden">
-            <ParallaxImage
-              src="/images/hero-pizza.png"
-              alt="Frische neapolitanische Pizza Margherita mit frischem Basilikum"
+            <div
               className="w-full h-full"
-              speed={0.2}
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background/30"></div>
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                maskComposite: 'intersect',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 100%)',
+              }}
+            >
+              <ParallaxImage
+                src="/images/hero-pizza.png"
+                alt="Frische neapolitanische Pizza Margherita mit frischem Basilikum"
+                className="w-full h-full"
+                speed={0.2}
+              />
+            </div>
+            {/* Soft color overlay for warmth */}
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
           </div>
         </div>
       </section>
@@ -206,18 +217,32 @@ export default function Home() {
       {/* Restaurant Interior Section */}
       <section className="py-16 md:py-24 pattern-bg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Image with reveal effect */}
+          {/* Image with reveal effect - fully integrated with background */}
           <FadeInView direction="left">
             <motion.div
-              className="relative h-[300px] md:h-[400px] overflow-hidden rounded-lg shadow-xl"
+              className="relative h-[300px] md:h-[400px] overflow-hidden group"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
+              style={{
+                maskImage: 'radial-gradient(ellipse 90% 90% at 30% 50%, black 40%, transparent 70%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 30% 50%, black 40%, transparent 70%)',
+              }}
             >
-              <img
+              <motion.img
                 src="/images/restaurant-interior.png"
                 alt="Gemütlicher Innenraum des Mago Dei Cuori Restaurants"
                 loading="lazy"
                 className="w-full h-full object-cover"
+                animate={{
+                  scale: [1, 1.08, 1],
+                  x: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                whileHover={{ scale: 1.1 }}
               />
             </motion.div>
           </FadeInView>
@@ -322,18 +347,32 @@ export default function Home() {
               </StaggerChildren>
             </div>
 
-            {/* Image */}
+            {/* Image - fully integrated with background */}
             <FadeInView direction="right">
               <motion.div
-                className="relative h-[300px] md:h-[400px] overflow-hidden rounded-lg shadow-xl"
+                className="relative h-[300px] md:h-[400px] overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
+                style={{
+                  maskImage: 'radial-gradient(ellipse 90% 90% at 70% 50%, black 40%, transparent 70%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 70% 50%, black 40%, transparent 70%)',
+                }}
               >
-                <img
+                <motion.img
                   src="/images/ingredients.png"
                   alt="Hochwertige italienische Zutaten wie San Marzano Tomaten und frischer Mozzarella"
                   loading="lazy"
                   className="w-full h-full object-cover"
+                  animate={{
+                    scale: [1.08, 1, 1.08],
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  whileHover={{ scale: 1.12 }}
                 />
               </motion.div>
             </FadeInView>

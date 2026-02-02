@@ -505,33 +505,6 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* Allergen Info Box */}
-      <section id="menu-content" className="py-4">
-        <div className="container">
-          <FadeInView>
-            <motion.div
-              className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4 md:p-6 shadow-sm"
-              whileHover={{ scale: 1.005 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-amber-800 mb-2 text-lg">Allergeninformation</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 text-sm">
-                    {Object.entries(allergenMap).map(([code, name]) => (
-                      <span key={code} className="bg-amber-100 px-2 py-1 rounded text-amber-800">
-                        <strong>{code}</strong> = {name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </FadeInView>
-        </div>
-      </section>
-
       {/* Filter Results Info */}
       <AnimatePresence>
         {hasActiveFilters && (
@@ -713,6 +686,29 @@ export default function Menu() {
               <p className="text-sm text-muted-foreground mb-2">** Fior di Latte – feinster Mozzarella aus reiner Kuhmilch</p>
               <p className="text-sm text-muted-foreground">*** Italienischer Truthahnbraten, herzhaft und fein</p>
             </div>
+          </FadeInView>
+
+          {/* Allergen Info Box */}
+          <FadeInView>
+            <motion.div
+              className="mt-8 bg-amber-50 border-2 border-amber-300 rounded-xl p-4 md:p-6 shadow-sm"
+              whileHover={{ scale: 1.005 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-amber-800 mb-2 text-lg">Allergeninformation</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 text-sm">
+                    {Object.entries(allergenMap).map(([code, name]) => (
+                      <span key={code} className="bg-amber-100 px-2 py-1 rounded text-amber-800">
+                        <strong>{code}</strong> = {name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </FadeInView>
         </div>
       </section>

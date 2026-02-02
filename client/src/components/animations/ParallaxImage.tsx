@@ -29,6 +29,14 @@ export function ParallaxImage({
         alt={alt}
         style={{ y }}
         className="w-full h-[120%] object-cover"
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
     </div>
   );
