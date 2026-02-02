@@ -43,6 +43,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Zum Hauptinhalt springen
+      </a>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container flex items-center justify-between h-16">
@@ -51,9 +59,30 @@ export default function Home() {
             <h1 className="text-xl font-bold text-foreground">Mago Dei Cuori</h1>
           </div>
 
-          {/* Menu Button */}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/menu"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Menü
+            </Link>
+            <Link
+              href="/kontakt"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Kontakt
+            </Link>
+            <a href="tel:+43223161633">
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Reservieren
+              </Button>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            className="p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menü öffnen"
           >
@@ -61,9 +90,9 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Navigation Dropdown */}
+        {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="bg-white border-t border-border">
+          <div className="md:hidden bg-white border-t border-border">
             <div className="container py-4 flex flex-col gap-4">
               <Link
                 href="/menu"
@@ -79,13 +108,18 @@ export default function Home() {
               >
                 Kontakt
               </Link>
+              <a href="tel:+43223161633" className="py-2">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Reservieren
+                </Button>
+              </a>
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-16 pb-0 relative overflow-hidden">
+      <section id="main-content" className="pt-16 pb-0 relative overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[600px]">
           {/* Text Content */}
           <div className="flex flex-col justify-center px-6 md:px-12 py-12 md:py-0">
@@ -108,7 +142,7 @@ export default function Home() {
           <div className="relative h-[400px] md:h-auto overflow-hidden">
             <img
               src="/images/hero-pizza.png"
-              alt="Frische Pizza Margherita"
+              alt="Frische neapolitanische Pizza Margherita mit frischem Basilikum"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background/30"></div>
@@ -123,7 +157,8 @@ export default function Home() {
           <div className="relative h-[300px] md:h-[400px] overflow-hidden rounded-lg">
             <img
               src="/images/restaurant-interior.png"
-              alt="Restaurant Innenraum"
+              alt="Gemütlicher Innenraum des Mago Dei Cuori Restaurants"
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>
@@ -205,7 +240,8 @@ export default function Home() {
             <div className="relative h-[300px] md:h-[400px] overflow-hidden rounded-lg">
               <img
                 src="/images/ingredients.png"
-                alt="Italienische Zutaten"
+                alt="Hochwertige italienische Zutaten wie San Marzano Tomaten und frischer Mozzarella"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -13,6 +13,14 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#contact-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Zum Inhalt springen
+      </a>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container flex items-center justify-between h-16">
@@ -23,9 +31,36 @@ export default function Contact() {
             </Link>
           </div>
 
-          {/* Menu Button */}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              href="/menu"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Menü
+            </Link>
+            <Link
+              href="/kontakt"
+              className="text-primary font-medium"
+            >
+              Kontakt
+            </Link>
+            <a href="tel:+43223161633">
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Reservieren
+              </Button>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            className="p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menü öffnen"
           >
@@ -33,9 +68,9 @@ export default function Contact() {
           </button>
         </div>
 
-        {/* Navigation Dropdown */}
+        {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="bg-white border-t border-border">
+          <div className="md:hidden bg-white border-t border-border">
             <div className="container py-4 flex flex-col gap-4">
               <Link
                 href="/"
@@ -53,11 +88,16 @@ export default function Contact() {
               </Link>
               <Link
                 href="/kontakt"
-                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                className="text-primary py-2 text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Kontakt
               </Link>
+              <a href="tel:+43223161633" className="py-2">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Reservieren
+                </Button>
+              </a>
             </div>
           </div>
         )}
@@ -82,7 +122,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-8">
+      <section id="contact-content" className="py-8">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="bg-white p-8 rounded-xl border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all text-center">

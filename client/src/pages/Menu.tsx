@@ -1,14 +1,43 @@
-import { useState, useEffect } from 'react';
-import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
+import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle, Search, Filter } from 'lucide-react';
 import { Link } from 'wouter';
+import { Button } from '@/components/ui/button';
 
 export default function Menu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
+  const [showAllergenFilter, setShowAllergenFilter] = useState(false);
 
   // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const allergenMap: Record<string, string> = {
+    'A': 'Gluten',
+    'B': 'Krebstiere',
+    'C': 'Eier',
+    'D': 'Fisch',
+    'E': 'Erdnüsse',
+    'F': 'Soja',
+    'G': 'Milch',
+    'H': 'Schalenfrüchte',
+    'L': 'Sellerie',
+    'M': 'Senf',
+    'N': 'Sesam',
+    'O': 'Sulfite',
+    'P': 'Lupinen',
+    'R': 'Weichtiere',
+  };
+
+  const toggleAllergen = (allergen: string) => {
+    setSelectedAllergens(prev =>
+      prev.includes(allergen)
+        ? prev.filter(a => a !== allergen)
+        : [...prev, allergen]
+    );
+  };
 
   const bestsellers = [
     { name: 'Mago dei Cuori', description: 'San Marzano DOP, Fior di Latte, Burrata, getrocknete Tomaten, Rucola', price: '€14,50', allergens: 'AGO' },
@@ -126,8 +155,49 @@ export default function Menu() {
     },
   ];
 
+  // Filter function for menu items
+  const filterItem = (item: { name: string; description: string; allergens: string }) => {
+    // Check search query
+    const matchesSearch = searchQuery === '' ||
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+    // Check allergens - exclude items that contain any of the selected allergens
+    const matchesAllergens = selectedAllergens.length === 0 ||
+      !selectedAllergens.some(allergen => item.allergens.includes(allergen));
+
+    return matchesSearch && matchesAllergens;
+  };
+
+  // Filtered bestsellers
+  const filteredBestsellers = useMemo(() => {
+    return bestsellers.filter(filterItem);
+  }, [searchQuery, selectedAllergens]);
+
+  // Filtered menu categories
+  const filteredMenuCategories = useMemo(() => {
+    return menuCategories
+      .map(category => ({
+        ...category,
+        items: category.items.filter(filterItem)
+      }))
+      .filter(category => category.items.length > 0);
+  }, [searchQuery, selectedAllergens]);
+
+  // Check if any filters are active
+  const hasActiveFilters = searchQuery !== '' || selectedAllergens.length > 0;
+  const totalFilteredItems = filteredBestsellers.length + filteredMenuCategories.reduce((acc, cat) => acc + cat.items.length, 0);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#menu-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+      >
+        Zum Menü springen
+      </a>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container flex items-center justify-between h-16">
@@ -138,9 +208,36 @@ export default function Menu() {
             </Link>
           </div>
 
-          {/* Menu Button */}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              href="/menu"
+              className="text-primary font-medium"
+            >
+              Menü
+            </Link>
+            <Link
+              href="/kontakt"
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Kontakt
+            </Link>
+            <a href="tel:+43223161633">
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Reservieren
+              </Button>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            className="p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menü öffnen"
           >
@@ -148,9 +245,9 @@ export default function Menu() {
           </button>
         </div>
 
-        {/* Navigation Dropdown */}
+        {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="bg-white border-t border-border">
+          <div className="md:hidden bg-white border-t border-border">
             <div className="container py-4 flex flex-col gap-4">
               <Link
                 href="/"
@@ -161,7 +258,7 @@ export default function Menu() {
               </Link>
               <Link
                 href="/menu"
-                className="text-foreground hover:text-primary transition-colors py-2 text-lg"
+                className="text-primary py-2 text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Menü
@@ -173,6 +270,11 @@ export default function Menu() {
               >
                 Kontakt
               </Link>
+              <a href="tel:+43223161633" className="py-2">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Reservieren
+                </Button>
+              </a>
             </div>
           </div>
         )}
@@ -194,7 +296,7 @@ export default function Menu() {
             </p>
 
             {/* Quick Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
               <a href="#bestseller" className="px-4 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors text-sm md:text-base">
                 Bestseller
               </a>
@@ -220,12 +322,78 @@ export default function Menu() {
                 Dolce
               </a>
             </div>
+
+            {/* Search and Filter */}
+            <div className="max-w-2xl mx-auto space-y-4">
+              {/* Search Bar */}
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Suche nach Gerichten..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 rounded-full border-2 border-border focus:border-primary focus:outline-none transition-colors text-foreground bg-white"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+
+              {/* Allergen Filter Toggle */}
+              <div>
+                <button
+                  onClick={() => setShowAllergenFilter(!showAllergenFilter)}
+                  className="flex items-center gap-2 mx-auto text-primary hover:text-primary/80 transition-colors font-medium"
+                >
+                  <Filter className="w-4 h-4" />
+                  {showAllergenFilter ? 'Filter ausblenden' : 'Nach Allergenen filtern'}
+                </button>
+
+                {/* Allergen Filter Options */}
+                {showAllergenFilter && (
+                  <div className="mt-4 p-4 bg-white rounded-xl border border-border">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Wählen Sie Allergene aus, die Sie <strong>vermeiden</strong> möchten:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {Object.entries(allergenMap).map(([code, name]) => (
+                        <button
+                          key={code}
+                          onClick={() => toggleAllergen(code)}
+                          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                            selectedAllergens.includes(code)
+                              ? 'bg-red-500 text-white'
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          }`}
+                        >
+                          {code} - {name}
+                        </button>
+                      ))}
+                    </div>
+                    {selectedAllergens.length > 0 && (
+                      <button
+                        onClick={() => setSelectedAllergens([])}
+                        className="mt-3 text-sm text-primary hover:underline"
+                      >
+                        Filter zurücksetzen
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Allergen Info Box */}
-      <section className="py-4">
+      <section id="menu-content" className="py-4">
         <div className="container">
           <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4 md:p-6">
             <div className="flex items-start gap-3">
@@ -254,53 +422,92 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* Bestseller Section */}
-      <section id="bestseller" className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 scroll-mt-20">
-        <div className="container">
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full mb-4">
-              <Star className="w-5 h-5 fill-current" />
-              <span className="font-bold">Bestseller</span>
-              <Star className="w-5 h-5 fill-current" />
+      {/* Filter Results Info */}
+      {hasActiveFilters && (
+        <section className="py-4">
+          <div className="container">
+            <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 text-center">
+              <p className="text-foreground">
+                <strong>{totalFilteredItems}</strong> {totalFilteredItems === 1 ? 'Ergebnis' : 'Ergebnisse'} gefunden
+                {searchQuery && <span> für "<strong>{searchQuery}</strong>"</span>}
+                {selectedAllergens.length > 0 && <span> (ohne {selectedAllergens.join(', ')})</span>}
+              </p>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Unsere beliebtesten Pizzen
-            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {bestsellers.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                  TOP {index + 1}
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 pr-12">
-                  {item.name}
-                </h3>
-                {item.allergens && (
-                  <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded mb-2">
-                    <AlertCircle className="w-3 h-3" />
-                    {item.allergens}
-                  </div>
-                )}
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {item.description}
-                </p>
-                <span className="text-xl font-bold text-primary">
-                  {item.price}
-                </span>
+        </section>
+      )}
+
+      {/* No Results Message */}
+      {hasActiveFilters && totalFilteredItems === 0 && (
+        <section className="py-16">
+          <div className="container text-center">
+            <div className="text-6xl mb-4">🔍</div>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Keine Ergebnisse gefunden</h2>
+            <p className="text-muted-foreground mb-6">
+              Versuchen Sie, Ihre Suchkriterien anzupassen oder Filter zu entfernen.
+            </p>
+            <Button
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedAllergens([]);
+              }}
+              className="bg-primary hover:bg-primary/90 text-white"
+            >
+              Filter zurücksetzen
+            </Button>
+          </div>
+        </section>
+      )}
+
+      {/* Bestseller Section */}
+      {filteredBestsellers.length > 0 && (
+        <section id="bestseller" className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 scroll-mt-20">
+          <div className="container">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full mb-4">
+                <Star className="w-5 h-5 fill-current" />
+                <span className="font-bold">Bestseller</span>
+                <Star className="w-5 h-5 fill-current" />
               </div>
-            ))}
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                Unsere beliebtesten Pizzen
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {filteredBestsellers.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                    TOP {index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 pr-12">
+                    {item.name}
+                  </h3>
+                  {item.allergens && (
+                    <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded mb-2">
+                      <AlertCircle className="w-3 h-3" />
+                      {item.allergens}
+                    </div>
+                  )}
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {item.description}
+                  </p>
+                  <span className="text-xl font-bold text-primary">
+                    {item.price}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Menu Section */}
       <section className="py-8 md:py-12">
         <div className="container">
-          {menuCategories.map((category, categoryIndex) => (
+          {filteredMenuCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} id={category.category.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/&/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')} className="mb-12 scroll-mt-20">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 border-b border-primary pb-2">
                 {category.category}
