@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, MapPin, Clock, Phone, Menu, X } from 'lucide-react';
+import { Star, MapPin, Clock, Phone, Menu, X, Pizza, Salad, Cake, Wine } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { FadeInView, StaggerChildren, StaggerItem, AnimatedCounter, ParallaxImage, FloatingActionButton } from '@/components/animations';
@@ -44,10 +44,10 @@ export default function Home() {
   ];
 
   const menuStats = [
-    { icon: '🍕', label: 'Pizzen', value: 24 },
-    { icon: '🥗', label: 'Salate', value: 4 },
-    { icon: '🍰', label: 'Desserts', value: 3 },
-    { icon: '🥤', label: 'Getränke', value: 15 },
+    { icon: Pizza, label: 'Pizzen', value: 24 },
+    { icon: Salad, label: 'Salate', value: 4 },
+    { icon: Cake, label: 'Desserts', value: 3 },
+    { icon: Wine, label: 'Getränke', value: 15 },
   ];
 
   return (
@@ -363,13 +363,13 @@ export default function Home() {
                     className="bg-white p-6 rounded-lg border border-border text-center card-glow"
                     whileHover={{ y: -4, scale: 1.02 }}
                   >
-                    <motion.span
-                      className="text-3xl mb-2 block"
+                    <motion.div
+                      className="mb-2 flex justify-center"
                       animate={{ y: [0, -5, 0] }}
                       transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                     >
-                      {stat.icon}
-                    </motion.span>
+                      <stat.icon className="w-8 h-8 text-primary" />
+                    </motion.div>
                     <span className="text-foreground font-medium">
                       <AnimatedCounter value={stat.value} /> {stat.label}
                     </span>
