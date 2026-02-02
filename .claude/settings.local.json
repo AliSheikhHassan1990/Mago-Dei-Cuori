@@ -5,7 +5,11 @@
       "Bash(pnpm dev)",
       "WebFetch(domain:maps.app.goo.gl)",
       "WebFetch(domain:www.google.com)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(npm run check:*)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(ping:*)",
+      "Bash(del \"c:\\\\Users\\\\alish\\\\Desktop\\\\start-up\\\\resturants\\\\Mago-Dei-Cuori\\\\nul\")"
     ]
   }
 }
