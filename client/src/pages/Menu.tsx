@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle, Search, Filter } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
@@ -156,7 +156,7 @@ export default function Menu() {
   ];
 
   // Filter function for menu items
-  const filterItem = (item: { name: string; description: string; allergens: string }) => {
+  const filterItem = useCallback((item: { name: string; description: string; allergens: string }) => {
     // Check search query
     const matchesSearch = searchQuery === '' ||
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -167,12 +167,12 @@ export default function Menu() {
       !selectedAllergens.some(allergen => item.allergens.includes(allergen));
 
     return matchesSearch && matchesAllergens;
-  };
+  }, [searchQuery, selectedAllergens]);
 
   // Filtered bestsellers
   const filteredBestsellers = useMemo(() => {
     return bestsellers.filter(filterItem);
-  }, [searchQuery, selectedAllergens]);
+  }, [filterItem]);
 
   // Filtered menu categories
   const filteredMenuCategories = useMemo(() => {
@@ -182,7 +182,7 @@ export default function Menu() {
         items: category.items.filter(filterItem)
       }))
       .filter(category => category.items.length > 0);
-  }, [searchQuery, selectedAllergens]);
+  }, [filterItem]);
 
   // Check if any filters are active
   const hasActiveFilters = searchQuery !== '' || selectedAllergens.length > 0;

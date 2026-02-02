@@ -442,7 +442,7 @@ export default function Home() {
           {/* Social Media Footer */}
           <div className="flex justify-center gap-4 mb-4">
             <a
-              href="https://wa.me/4366565533443"
+              href="https://wa.me/436607213564"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
