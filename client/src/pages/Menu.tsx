@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle, Search, Filter, Sparkles } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { FadeInView, StaggerChildren, StaggerItem, FloatingActionButton, MenuCard } from '@/components/animations';
+import { FadeInView, StaggerChildren, StaggerItem, FloatingActionButton, MenuCard, AllergenBadge } from '@/components/animations';
 
 export default function Menu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -623,9 +623,8 @@ export default function Menu() {
                         {item.name}
                       </h3>
                       {item.allergens && (
-                        <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded mb-2">
-                          <AlertCircle className="w-3 h-3" />
-                          {item.allergens}
+                        <div className="mb-2">
+                          <AllergenBadge allergens={item.allergens} showLabel={false} />
                         </div>
                       )}
                       <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
