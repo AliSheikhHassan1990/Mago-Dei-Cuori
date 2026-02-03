@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock, Phone, ArrowLeft, Menu as MenuIcon, X, Star, AlertCircle, Search, Filter, Sparkles } from 'lucide-react';
 import { Link } from 'wouter';
@@ -11,6 +11,7 @@ export default function Menu() {
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
   const [showAllergenFilter, setShowAllergenFilter] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>('');
+  const categoryNavRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function Menu() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('[data-category]');
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 160;
 
       sections.forEach((section) => {
         const element = section as HTMLElement;
@@ -38,6 +39,20 @@ export default function Menu() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll active category button into view
+  useEffect(() => {
+    if (activeCategory && categoryNavRef.current) {
+      const activeButton = categoryNavRef.current.querySelector(`[data-nav-category="${activeCategory}"]`);
+      if (activeButton) {
+        activeButton.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  }, [activeCategory]);
 
   const allergenMap: Record<string, string> = {
     'A': 'Gluten',
@@ -330,7 +345,7 @@ export default function Menu() {
       </motion.nav>
 
       {/* Back Button & Header */}
-      <section className="pt-24 pb-8">
+      <section className="pt-36 pb-8">
         <div className="container">
           <FadeInView direction="left">
             <Link href="/" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-6 group">
@@ -358,48 +373,59 @@ export default function Menu() {
             </FadeInView>
 
             <FadeInView delay={0.1}>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
                 Authentische neapolitanische Pizza und mediterrane Köstlichkeiten
               </p>
             </FadeInView>
+          </div>
+        </div>
+      </section>
 
-            {/* Quick Navigation - Sticky Pills */}
-            <FadeInView delay={0.2}>
-              <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
-                <motion.a
-                  href="#bestseller"
-                  className={`px-4 py-2 font-semibold rounded-full text-sm md:text-base transition-all ${
-                    activeCategory === 'bestseller'
-                      ? 'bg-primary text-white shadow-lg'
-                      : 'bg-primary text-white hover:shadow-md'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Sparkles className="w-4 h-4 inline mr-1" />
-                  Bestseller
-                </motion.a>
-                {menuCategories.map((cat, index) => (
-                  <motion.a
-                    key={cat.category}
-                    href={`#${getCategoryId(cat.category)}`}
-                    className={`px-4 py-2 font-semibold rounded-full text-sm md:text-base transition-all ${
-                      activeCategory === getCategoryId(cat.category)
-                        ? 'bg-primary text-white shadow-lg'
-                        : 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white'
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + index * 0.05 }}
-                  >
-                    {cat.category}
-                  </motion.a>
-                ))}
-              </div>
-            </FadeInView>
+      {/* Quick Navigation - Fixed Pills */}
+      <div className="fixed top-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm py-3 shadow-sm border-b border-border/50">
+        <div className="container">
+          <div
+            ref={categoryNavRef}
+            className="flex overflow-x-auto gap-2 md:gap-3 pb-2 md:pb-0 md:flex-wrap md:justify-center scrollbar-hide"
+          >
+            <motion.a
+              href="#bestseller"
+              data-nav-category="bestseller"
+              className={`px-4 py-2 font-semibold rounded-full text-sm md:text-base transition-all whitespace-nowrap flex-shrink-0 ${
+                activeCategory === 'bestseller'
+                  ? 'bg-primary text-white shadow-lg scale-105'
+                  : 'bg-primary/80 text-white hover:bg-primary hover:shadow-md'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Sparkles className="w-4 h-4 inline mr-1" />
+              Bestseller
+            </motion.a>
+            {menuCategories.map((cat) => (
+              <motion.a
+                key={cat.category}
+                href={`#${getCategoryId(cat.category)}`}
+                data-nav-category={getCategoryId(cat.category)}
+                className={`px-4 py-2 font-semibold rounded-full text-sm md:text-base transition-all whitespace-nowrap flex-shrink-0 ${
+                  activeCategory === getCategoryId(cat.category)
+                    ? 'bg-primary text-white shadow-lg scale-105'
+                    : 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {cat.category}
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </div>
 
+      {/* Search and Filter Section */}
+      <section className="pt-4 pb-8">
+        <div className="container">
+          <div className="text-center">
             {/* Search and Filter */}
             <FadeInView delay={0.3}>
               <div className="max-w-2xl mx-auto space-y-4">
@@ -573,7 +599,7 @@ export default function Menu() {
         <section
           id="bestseller"
           data-category="bestseller"
-          className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 scroll-mt-20"
+          className="py-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 scroll-mt-36"
         >
           <div className="container">
             <FadeInView>
@@ -653,7 +679,7 @@ export default function Menu() {
               key={categoryIndex}
               id={getCategoryId(category.category)}
               data-category={getCategoryId(category.category)}
-              className="mb-12 scroll-mt-20"
+              className="mb-12 scroll-mt-36"
             >
               <FadeInView>
                 <motion.h2
