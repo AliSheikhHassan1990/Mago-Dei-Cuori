@@ -190,26 +190,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Image with Parallax - fully integrated */}
-          <div className="relative h-[400px] md:h-auto overflow-hidden">
-            <div
-              className="w-full h-full"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-                maskComposite: 'intersect',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 100%)',
-              }}
-            >
-              <ParallaxImage
-                src="/images/hero-pizza.png"
-                alt="Frische neapolitanische Pizza Margherita mit frischem Basilikum"
-                className="w-full h-full"
-                speed={0.2}
-              />
-            </div>
-            {/* Soft color overlay for warmth */}
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background pointer-events-none"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+          {/* Hero Image */}
+          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-2xl shadow-xl mx-4 md:mx-0">
+            <img
+              src="/images/hero-pizza.png"
+              alt="Frische neapolitanische Pizza Margherita mit frischem Basilikum"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -218,7 +205,7 @@ export default function Home() {
       <section className="py-16 md:py-24 pattern-bg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Image with reveal effect - fully integrated with background */}
-          <FadeInView direction="left">
+          <FadeInView direction="left" className="order-2 md:order-1">
             <motion.div
               className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group rounded-2xl shadow-xl"
               whileHover={{ scale: 1.02 }}
@@ -235,7 +222,7 @@ export default function Home() {
           </FadeInView>
 
           {/* Content */}
-          <div className="px-6 md:px-0">
+          <div className="px-6 md:px-0 order-1 md:order-2">
             <FadeInView direction="right">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Sehr geehrte <span className="text-gradient">Gäste</span>
