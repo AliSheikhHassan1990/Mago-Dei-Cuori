@@ -65,7 +65,7 @@ Die Website konzentriert sich darauf, die Qualität der Speisen und die Authenti
 ## Bilder
 - **hero-pizza.png:** Frische Pizza Margherita (Hero Section)
 - **restaurant-interior.png:** Warmer Innenraum mit Holzofen
-- **ingredients.png:** Italienische Zutaten auf hellem Hintergrund
+- **ingredients.png:** Pizza Chef
 - **pasta-dish.png:** Frische Pasta mit Sauce
 
 ## Interaktive Elemente

@@ -220,29 +220,16 @@ export default function Home() {
           {/* Image with reveal effect - fully integrated with background */}
           <FadeInView direction="left">
             <motion.div
-              className="relative h-[300px] md:h-[400px] overflow-hidden group"
+              className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group rounded-2xl shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              style={{
-                maskImage: 'radial-gradient(ellipse 90% 90% at 30% 50%, black 40%, transparent 70%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 30% 50%, black 40%, transparent 70%)',
-              }}
             >
               <motion.img
-                src="/images/restaurant-interior.png"
+                src="/images/restaurant-interior.jpeg"
                 alt="Gemütlicher Innenraum des Mago Dei Cuori Restaurants"
                 loading="lazy"
                 className="w-full h-full object-cover"
-                animate={{
-                  scale: [1, 1.08, 1],
-                  x: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
               />
             </motion.div>
           </FadeInView>
@@ -350,29 +337,16 @@ export default function Home() {
             {/* Image - fully integrated with background */}
             <FadeInView direction="right">
               <motion.div
-                className="relative h-[300px] md:h-[400px] overflow-hidden group"
+                className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group rounded-2xl shadow-xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                style={{
-                  maskImage: 'radial-gradient(ellipse 90% 90% at 70% 50%, black 40%, transparent 70%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 70% 50%, black 40%, transparent 70%)',
-                }}
               >
                 <motion.img
-                  src="/images/ingredients.png"
+                  src="/images/ingredients.jpeg"
                   alt="Hochwertige italienische Zutaten wie San Marzano Tomaten und frischer Mozzarella"
                   loading="lazy"
                   className="w-full h-full object-cover"
-                  animate={{
-                    scale: [1.08, 1, 1.08],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 18,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  whileHover={{ scale: 1.12 }}
+                  whileHover={{ scale: 1.05 }}
                 />
               </motion.div>
             </FadeInView>

@@ -35,7 +35,7 @@ Kurze Beschreibung aller Dateien im Projekt.
 | Datei | Beschreibung |
 |-------|--------------|
 | `hero-pizza.png` | Hauptbild für die Hero-Sektion |
-| `ingredients.png` | Bild von Zutaten |
+| `ingredients.png` | Bild vom Chef |
 | `pasta-dish.png` | Pasta-Gericht Bild |
 | `restaurant-interior.png` | Innenansicht des Restaurants |
 | `menu.pdf` | PDF-Version der Speisekarte |
