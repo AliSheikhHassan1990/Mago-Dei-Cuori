@@ -160,8 +160,8 @@ export default function Contact() {
               </a>
               <div className="mt-4 flex items-center justify-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:Magodeicuori@gmail.com" className="hover:text-primary transition-colors text-sm">
-                  Magodeicuori@gmail.com
+                <a href="mailto:info@magodeicuori.de" className="hover:text-primary transition-colors text-sm">
+                  info@magodeicuori.de
                 </a>
               </div>
             </div>
