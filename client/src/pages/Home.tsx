@@ -523,7 +523,7 @@ export default function Home() {
                   </motion.div>
                   <h3 className="font-bold text-foreground mb-2">Kontakt</h3>
                   <p className="text-muted-foreground text-sm">+43 2231 61633</p>
-                  <p className="text-muted-foreground text-sm break-all">Magodeicuori@gmail.com</p>
+                  <p className="text-muted-foreground text-sm break-all">info@magodeicuori.de</p>
                 </motion.div>
               </StaggerItem>
             </StaggerChildren>
