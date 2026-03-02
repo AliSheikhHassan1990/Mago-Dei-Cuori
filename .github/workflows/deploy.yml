@@ -1,16 +1,19 @@
-name: Deploy to IONOS
+name: CI
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+
+# Deployment is handled automatically by Coolify via Git sync
+# This workflow runs CI checks to verify the build before deployment
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment: Mago-Dei-Cuori
     steps:
       - uses: actions/checkout@v4
-      - run: ls -la
 
       - uses: pnpm/action-setup@v4
 
@@ -20,21 +23,4 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
-  
-
-      # - name: Print variables
-      #   run: |
-      #     echo "IONOS_HOST: ${{ secrets.IONOS_HOST }}"
-      #     echo "IONOS_USER: ${{ vars.IONOS_USER }}"
-      #     echo "IONOS_PASS: [MASKED]"
-
-      - name: Deploy via SFTP
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ vars.IONOS_HOST }}
-          username: ${{ vars.IONOS_USER }}
-          password: ${{ secrets.IONOS_PASS }}
-          port: 22
-          uploads: |
-            ./dist/ => /clickandbuilds/magodeicori
             
